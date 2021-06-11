@@ -1,4 +1,4 @@
-package it.uniroma3.siw.controller;
+package it.uniroma3.siw.validator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,11 +26,11 @@ public class OperaValidator implements Validator {
 		if (!errors.hasErrors()) {
 			logger.debug("confermato: valori richiesti non nulli");
 			
-			/*if (this.operaService.alreadyExists(o)) {
+			if (this.operaService.alreadyExists(o)) {
 				logger.debug("e' un duplicato");
 				
 				errors.reject("duplicato");
-			}*/
+			}
 		}
 	}
 	

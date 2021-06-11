@@ -19,8 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.model.Artista;
 import it.uniroma3.siw.service.ArtistaService;
-import it.uniroma3.siw.service.FileUploadUtil;
+import it.uniroma3.siw.service.CaricaFile;
 import it.uniroma3.siw.service.MvcConfig;
+import it.uniroma3.siw.validator.ArtistaValidator;
 
 @Controller
 public class ArtistaController {
@@ -40,7 +41,7 @@ public class ArtistaController {
 		try {
 			Artista a = artistaService.getArtista(id);
 			model.addAttribute("artista", a);
-			//model.addAttribute("opere", a.getOpere());
+			model.addAttribute("opere", a.getOpere());
 			
 			return "artista";
 			
@@ -66,11 +67,11 @@ public class ArtistaController {
 		if(!bindingResult.hasErrors()) {
 			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 			
-			//artista.setImmagine(fileName);
+			artista.setImmagine(fileName);
 			
 			artistaService.saveArtista(artista);
 			
-			FileUploadUtil.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
+			CaricaFile.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
 			
 			return "admin/gestisci";
 		}

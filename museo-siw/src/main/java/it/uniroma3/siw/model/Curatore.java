@@ -13,9 +13,9 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Dipendente {
+public class Curatore {
 	
-	public Dipendente() {
+	public Curatore() {
 		
 	}
 	
@@ -129,7 +129,7 @@ public class Dipendente {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Dipendente other = (Dipendente) obj;
+		Curatore other = (Curatore) obj;
 		if (cognome == null) {
 			if (other.cognome != null)
 				return false;

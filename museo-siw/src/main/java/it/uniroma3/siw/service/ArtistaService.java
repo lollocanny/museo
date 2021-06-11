@@ -37,8 +37,8 @@ public class ArtistaService {
 		return (List<Artista>) artistaRepository.findAll();
 	}
 
-	/*@Transactional
+	@Transactional
 	public boolean alreadyExists(Artista a) {
 		return artistaRepository.findByNomeAndCognome(a.getNome(), a.getCognome()).orElse(null) != null;
-	}*/
+	}
 }

@@ -1,4 +1,4 @@
-package it.uniroma3.siw.controller;
+package it.uniroma3.siw.validator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,11 +24,11 @@ public class CollezioneValidator implements Validator {
 		if (!errors.hasErrors()) {
 			logger.debug("confermato: valori richiesti non nulli");
 			
-			/*if (this.collezioneService.alreadyExists((Collezione)o)) {
+			if (this.collezioneService.alreadyExists((Collezione)o)) {
 				logger.debug("e' un duplicato");
 				
 				errors.reject("duplicato");
-			}*/
+			}
 		}
 	}
 

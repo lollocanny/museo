@@ -28,10 +28,10 @@ public class LoginController {
 		UserDetails dettagliUtente = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	    Credenziali credenziali = credenzialiService.getCredenziali(dettagliUtente.getUsername());
 	    
-	    //if (credenziali.getRole().equals(Credenziali.ADMIN_ROLE)) {
-	    //	model.addAttribute("artista", new Artista());
-	    //	return "admin/gestisci";
-	    //}
+	    if (credenziali.getRole().equals(Credenziali.ADMIN_ROLE)) {
+	    	model.addAttribute("artista", new Artista());
+	    	return "admin/gestisci";
+	    }
 	    return "index";
 	}
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.model.Collezione;
 import it.uniroma3.siw.service.CollezioneService;
+import it.uniroma3.siw.validator.CollezioneValidator;
 
 @Controller
 public class CollezioneController {
@@ -26,7 +27,7 @@ public class CollezioneController {
 		Collezione c = collezioneService.getCollezione(nome);
 		
 		model.addAttribute("collezione", c);
-		//model.addAttribute("opere", c.getOpere());
+		model.addAttribute("opere", c.getOpere());
 		
 		return "collezione";
 	}

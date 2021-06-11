@@ -7,17 +7,17 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.uniroma3.siw.model.Dipendente;
-import it.uniroma3.siw.repository.DipendenteRepository;
+import it.uniroma3.siw.model.Curatore;
+import it.uniroma3.siw.repository.CuratoreRepository;
 
 @Service
-public class DipendentiService {
+public class CuratoreService {
 
 	@Autowired
-	private DipendenteRepository dipendenteRepository;
+	private CuratoreRepository dipendenteRepository;
 	
 	@Transactional
-	public List<Dipendente> getAllDipendenti(){
-		return (List<Dipendente>) dipendenteRepository.findAll();
+	public List<Curatore> getAllDipendenti(){
+		return (List<Curatore>) dipendenteRepository.findAll();
 	}
 }

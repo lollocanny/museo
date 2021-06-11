@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import it.uniroma3.siw.model.Dipendente;
+import it.uniroma3.siw.model.Curatore;
 
-public interface DipendenteRepository extends CrudRepository<Dipendente, Long> {
+public interface CuratoreRepository extends CrudRepository<Curatore, Long> {
 
-	public Optional<Dipendente> findByMatricola(String matricola);
+	public Optional<Curatore> findByMatricola(String matricola);
 
 }

@@ -1,4 +1,4 @@
-package it.uniroma3.siw.controller;
+package it.uniroma3.siw.validator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,23 +27,23 @@ public class ArtistaValidator implements Validator {
 		
 		Artista a = (Artista)o;
 		
-		//if("".equals(a.getLuogoMorte())) {
-		//	a.setLuogoMorte(null);
-		//}
+		if("".equals(a.getLuogoMorte())) {
+			a.setLuogoMorte(null);
+		}
 		
-		//if(a.getDataMorte() != null && a.getDataNascita().isAfter(a.getDataMorte())) {
-			//errors.reject("dataNascita");
-			//return;
-		//}
+		if(a.getDataMorte() != null && a.getDataNascita().isAfter(a.getDataMorte())) {
+			errors.reject("dataNascita");
+			return;
+		}
 
 		if (!errors.hasErrors()) {
 			logger.debug("confermato: valori richiesti non nulli");
 			
-			/*if (this.artistaService.alreadyExists((Artista)o)) {
+			if (this.artistaService.alreadyExists((Artista)o)) {
 				logger.debug("e' un duplicato");
 				
 				errors.reject("duplicato");
-			}*/
+			}
 		}
 	}
 

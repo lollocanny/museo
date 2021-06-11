@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.model.Collezione;
-import it.uniroma3.siw.model.Dipendente;
+import it.uniroma3.siw.model.Curatore;
 import it.uniroma3.siw.repository.CollezioneRepository;
-import it.uniroma3.siw.repository.DipendenteRepository;
+import it.uniroma3.siw.repository.CuratoreRepository;
 
 @Service
 public class CollezioneService {
@@ -20,14 +20,14 @@ public class CollezioneService {
 	private CollezioneRepository collezioneRepository;
 
 	@Autowired
-	private DipendenteRepository dipendenteRepository;
+	private CuratoreRepository dipendenteRepository;
 	
 	@Transactional
 	public void saveCollezione(Collezione c, String curatore_matricola) {
-		Dipendente d = dipendenteRepository.findByMatricola(curatore_matricola).orElse(null);
+		Curatore d = dipendenteRepository.findByMatricola(curatore_matricola).orElse(null);
 		
 		if(d != null) {
-			//c.setCuratore(d);
+			c.setCuratore(d);
 			collezioneRepository.save(c);
 		}
 	}
@@ -42,10 +42,10 @@ public class CollezioneService {
 		return (List<Collezione>) collezioneRepository.findAll();
 	}
 
-	/*@Transactional
+	@Transactional
 	public boolean alreadyExists(Collezione c) {
 		return collezioneRepository.findByNome(c.getNome()).orElse(null) != null;
-	}*/
+	}
 	
 	@Transactional
 	public void removeCollezione(String nome) {

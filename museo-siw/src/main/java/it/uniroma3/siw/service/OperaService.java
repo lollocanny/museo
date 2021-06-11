@@ -40,8 +40,8 @@ public class OperaService {
 			return;
 		}
 		
-		//o.setAutore(a);
-		//o.setCollezione(c);
+		o.setAutore(a);
+		o.setCollezione(c);
 		
 		operaRepository.save(o);
 	}
@@ -56,10 +56,10 @@ public class OperaService {
 		return (List<Opera>) operaRepository.findAll();
 	}
 
-	/*@Transactional
+	@Transactional
 	public boolean alreadyExists(Opera o) {
 		return operaRepository.findByTitolo(o.getTitolo()).orElse(null) != null;
-	}*/
+	}
 	
 	public void removeOpera(Long id) {
 		operaRepository.deleteById(id);

@@ -19,7 +19,7 @@ import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.ArtistaService;
 import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.service.CredenzialiService;
-import it.uniroma3.siw.service.DipendentiService;
+import it.uniroma3.siw.service.CuratoreService;
 import it.uniroma3.siw.service.OperaService;
 
 @Controller
@@ -38,7 +38,7 @@ public class MainController {
 	private OperaService operaService;
 
 	@Autowired
-	private DipendentiService dipendentiService;
+	private CuratoreService dipendentiService;
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -49,7 +49,7 @@ public class MainController {
 			UserDetails dettagliUtente = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			Credenziali credenziali = credenzialiService.getCredenziali(dettagliUtente.getUsername());
 			
-			//isAdmin = Credenziali.ADMIN_ROLE.equals(credenziali.getRole());
+			isAdmin = Credenziali.ADMIN_ROLE.equals(credenziali.getRole());
 			
 		} catch(Exception e) {}
 		

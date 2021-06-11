@@ -19,9 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.model.Opera;
-import it.uniroma3.siw.service.FileUploadUtil;
+import it.uniroma3.siw.service.CaricaFile;
 import it.uniroma3.siw.service.MvcConfig;
 import it.uniroma3.siw.service.OperaService;
+import it.uniroma3.siw.validator.OperaValidator;
 
 @Controller
 public class OperaController {
@@ -41,7 +42,7 @@ public class OperaController {
 		try {
 			Opera o = operaService.getOpera(id);
 			model.addAttribute("opera", o);
-			//model.addAttribute("autore", o.getAutore());
+			model.addAttribute("autore", o.getAutore());
 			
 			return "opera.html";
 			
@@ -70,11 +71,11 @@ public class OperaController {
 			
 			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 			
-			//opera.setImmagine(fileName);
+			opera.setImmagine(fileName);
 			
 			operaService.saveOpera(opera, Long.parseLong(artista_id), collezione_nome);
 			
-			FileUploadUtil.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
+			CaricaFile.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
 			
 			return "admin/gestisci";
 		}
