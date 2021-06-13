@@ -30,9 +30,9 @@ public class MainController {
 	public String index(Model model) {
 			return "index";
 	}
-}
 
-/*	
+
+
 	@Autowired
 	private CredenzialiService credenzialiService;
 
@@ -128,10 +128,10 @@ public class MainController {
 		return getCollezioni(model);
 	}
 	
-	@RequestMapping(value="/admin/gestisci", method=RequestMethod.GET)
+	@RequestMapping(value="/gestisci", method=RequestMethod.GET)
 	public String gestisci(@ModelAttribute("submit") String submit, Model model) {
 		
-		if("artista".equals(submit)) {
+		/*if("artista".equals(submit)) {
 			model.addAttribute("artista", new Artista());
 			
 			return "admin/artista-form";
@@ -149,6 +149,9 @@ public class MainController {
 		model.addAttribute("dipendenti", dipendentiService.getAllDipendenti());
 		
 		return "admin/collezione-form";
+		*/
+		
+		return "gestisci.html";
 	}
 	
 	@RequestMapping(value="/admin/menu", method=RequestMethod.GET)
@@ -156,4 +159,4 @@ public class MainController {
 		return "admin/gestisci";
 	}
 	
-}*/
+}

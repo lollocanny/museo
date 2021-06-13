@@ -13,7 +13,7 @@ import it.uniroma3.siw.model.Credenziali;
 import it.uniroma3.siw.service.CredenzialiService;
 
 @Controller
-public class LoginController {
+public class AdminController {
 
 	@Autowired
 	private CredenzialiService credenzialiService;
@@ -23,15 +23,15 @@ public class LoginController {
 		return "login.html";
 	}
 	
-	@RequestMapping(value = "/default", method = RequestMethod.GET)
+	@RequestMapping(value = "/success", method = RequestMethod.GET)
 	public String defaultAfterLogin(Model model) {
 		UserDetails dettagliUtente = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	    Credenziali credenziali = credenzialiService.getCredenziali(dettagliUtente.getUsername());
 	    
 	    if (credenziali.getRole().equals(Credenziali.ADMIN_ROLE)) {
 	    	model.addAttribute("artista", new Artista());
-	    	return "admin/gestisci";
+	    	return "homePageAdmin.html";
 	    }
-	    return "index";
+	    return "index.html";
 	}
 }

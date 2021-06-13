@@ -3,16 +3,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>museo.com</title>
-	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/homePageAdmin.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 	<main>
-		<div>
+		<div class="top">
 				<a th:href="@{/}" class="home">HOME</a>
+				<h3>Benvenuto, gestisci il museo!</h3>
 		</div>
-		
 		<div class="containerBox">
 			<div class="collezioni">
 				<a href="/visualizzaOpere" class="collezioniTitolo" data-async>
@@ -83,7 +83,7 @@
 			</div>
 			
 			<div class="admin">
-				<p><a href="/login" data-async>ADMIN</a></p>
+				<p><a href="/gestisci" data-async>Pagina admin</a></p>
 			</div>
 		</div>
 

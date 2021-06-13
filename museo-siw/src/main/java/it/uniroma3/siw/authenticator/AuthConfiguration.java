@@ -31,11 +31,11 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
         // authorization paragraph: qui definiamo chi può accedere a cosa
         .authorizeRequests()
         // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-        .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/artista", "/artista/**", "/visualizzaOpere/**","/opere/**", "/collezione/**", "/css/**", "/img/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/", "/index" , "/login", "/artista", "/artista/**", "/visualizzaOpere/**","/opere/**", "/collezione/**", "/css/**", "/img/**").permitAll()
         // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
         .antMatchers(HttpMethod.POST, "/login").permitAll()
         // solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
-        .antMatchers(HttpMethod.GET, "/gestore/**").hasAnyAuthority(ADMIN_ROLE)
+        .antMatchers(HttpMethod.GET, "/gestore/**", "/admin/**","/gestisci").hasAnyAuthority(ADMIN_ROLE)
         .antMatchers(HttpMethod.POST, "/gestore/**").hasAnyAuthority(ADMIN_ROLE)
         // tutti gli utenti autenticati possono accere alle pagine rimanenti 
         .anyRequest().authenticated()
@@ -47,8 +47,8 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
         // NOTA: Spring gestisce il post di login automaticamente
         .loginPage("/login")
         .permitAll()
-        // se il login ha successo, si viene rediretti al path /default
-        .defaultSuccessUrl("/default")
+        // se il login ha successo, si viene rediretti al path /success
+        .defaultSuccessUrl("/success")
         // logout paragraph: qui definiamo il logout
         .and().logout()
         // il logout è attivato con una richiesta GET a "/logout"

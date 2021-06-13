@@ -1,0 +1,165 @@
+*{
+	margin: 0;
+	padding: 0
+}
+
+
+body{
+        font-family:  'Times New Roman', Times, serif;
+        background-color:white;    
+        background-image: url(../img/sfondologin.jpg);;
+        background-repeat: no-repeat;
+        background-size:cover;
+        position:relative;
+        height:1153.5px;
+}
+	
+	
+body .home {
+	margin-top: 5.5%;
+	margin-left: 4.3%;
+	margin-bottom: 1%;
+	box-shadow: 0px 0px 0px 2px #f0f1f5;
+	background-color:transparent;
+	border-radius:34px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Times New Roman;
+	font-size:17px;
+	padding:1px 0px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+	width:90px;
+}
+
+body .home:hover {
+	background:linear-gradient(to bottom, salmon 5%, #7892c2 100%);
+	background-color:salmon;
+}
+
+body .home:active {
+	position:relative;
+	top:1px;
+}	
+
+.codehim-form{
+        max-width: 400px;
+        min-height: 400px;
+        box-sizing: border-box;
+        background: salmon;
+        box-shadow: 4px 2px 16px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        margin:  190px auto 0 auto;
+        padding: 25px;
+        color: black;    
+    }
+    
+.cm-input{
+        display: block;
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%; 
+        margin: 15px auto;
+        border-radius: 20px;
+        border: 2px solid #ccc;
+    }
+    
+.cm-input:focus{
+        outline: 0;
+        border-color: #f9cb81;
+    }
+    
+    .cm-input:invalid{
+        border-color: #e41b17;
+    }
+    
+    .gr-bg{
+        background: white;
+    }
+
+    .btn-login{
+        display: block;
+        width: 50%;
+        padding: 10px;
+        border: 0;
+        color: black;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-left:25%;
+        position:relative;
+        margin-top:20%;
+    }
+    
+    .btn-login:focus{
+        outline: 0;
+    }
+    
+    .btn-login:hover{
+        opacity: 0.8;
+        transition: .3s;
+    }
+    
+    .form-title{
+        padding:1px;
+        text-align: center;
+        position: relative;
+        margin-bottom: 35px;
+    }
+    
+.form-title h2{
+        color: black;
+    }
+    
+.form-title .user-icon
+{
+        position: absolute;
+        border:1px solid black;
+        background-color:salmon;
+        font-size: 42px;
+        color: black;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        text-align: center;
+        border-radius: 45px;
+        top: -60px;
+        left: -45px;
+}
+ 
+a{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+}
+
+
+
+a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: all .35s;
+}
+
+a:hover{
+  color: #fff;
+}
+
+a:hover:after{
+  width: 100%;
+}

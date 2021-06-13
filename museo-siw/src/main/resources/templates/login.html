@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Galleria SIW</title>
+	<link rel="stylesheet" href="/css/login.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div>
+		<a th:href="@{/}" class="home">HOME</a>
+	</div>
+	<section>
+		<div class="rt-container">
+			<form th:action="@{/login}" method="POST" class="codehim-form">
+				<div class="form-title">
+					<div class="user-icon gr-bg">
+						<i class="fa fa-sign-in"></i>
+					</div>
+					<h2>Login</h2>
+				</div>
+				<label for="username"><i class="fa fa-user"></i> Username:</label>
+				<input type="text" id="username" name="username" class="cm-input" placeholder="Inserisci username">
+				<label for="pass"><i class="fa fa-lock"></i> Password:</label>
+				<input id="pass" type="password" name="password" class="cm-input" placeholder="Inserisci password">
+				<button type="submit" class="btn-login  gr-bg">Login</button>
+		</div>
+		</form>
+		</div>
+	</section>
+</body>
+
+</html>

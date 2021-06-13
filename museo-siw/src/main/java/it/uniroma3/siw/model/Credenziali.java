@@ -10,8 +10,8 @@ import javax.persistence.Id;
 @Entity
 public class Credenziali {
 	
-	public static final String DEFAULT_ROLE = "user";
-	public static final String ADMIN_ROLE = "admin";
+	public static final String DEFAULT_ROLE = "DEFAULT";
+	public static final String ADMIN_ROLE = "ADMIN";
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

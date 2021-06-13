@@ -29,8 +29,8 @@ main{
 
 
 main .home {
-	margin-top: 3%;
-	margin-left: 2%;
+	margin-top: 6%;
+	margin-left: 4%;
 	margin-bottom: 1%;
 	box-shadow: 0px 0px 0px 2px #f0f1f5;
 	background-color:transparent;
@@ -90,6 +90,19 @@ main .containerBox .menu a h2{
 	padding-right:10%;
 	}
 	
+.top{
+	column-count: 2;
+}
+
+body h3{
+	color:white;	
+	font-size: 28px;
+	margin-left: 50%;
+	padding-top: 8%;
+	position:relative;
+	
+}
+
 .collezioni{
 	box-shadow: 0px 10px 10px -10px rgba(255,255,255,0.4);
 	transition:all 1s;
