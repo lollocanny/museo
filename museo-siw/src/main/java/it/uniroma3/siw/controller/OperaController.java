@@ -26,13 +26,12 @@ import it.uniroma3.siw.validator.OperaValidator;
 
 @Controller
 public class OperaController {
-	
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    
 	@RequestMapping(value = {"/visualizzaOpere"}, method= RequestMethod.GET)
 	public String visualizzaOpere(Model model) {
 		logger.debug("visualizzaOpere");
-		return "opere";
+		return "opere.html";
 	}
     
 }

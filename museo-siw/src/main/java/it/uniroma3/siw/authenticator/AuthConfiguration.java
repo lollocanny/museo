@@ -31,7 +31,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
         // authorization paragraph: qui definiamo chi può accedere a cosa
         .authorizeRequests()
         // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-        .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/artista", "/artista/**", "/visualizzaOpere/**","/opere/**", "/collezione/**", "/css/**", "/images/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/artista", "/artista/**", "/visualizzaOpere/**","/opere/**", "/collezione/**", "/css/**", "/img/**").permitAll()
         // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
         .antMatchers(HttpMethod.POST, "/login").permitAll()
         // solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
@@ -69,7 +69,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
         //retrieve username, password and a boolean flag specifying whether the user is enabled or not (always enabled in our case)
         .usersByUsernameQuery("SELECT username, password, 1 as enabled FROM credenziali WHERE username=?");
 	}
-	
+
 	@Bean
 	PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
