@@ -1,0 +1,65 @@
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Times New Roman', Times, serif;
+	box-sizing: border-box;
+}
+
+:root{
+	 --secondary-color: darkblue;
+ 	 --contrast-color: white;
+}
+
+.logo{
+	margin-top: 1%;
+}
+.logo a {
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    padding:2%;
+    margin:100;
+}
+
+h1 {
+  text-align: center;
+	font-size: 75px;
+}
+
+
+h2 {
+  text-align: center;
+	font-size: 60px;
+	margin-top: 5%;
+	color:	rgb(0, 0, 106);
+}
+
+.descrizione{
+	text-align: center;
+	font-size: 32px;
+}
+
+.nomepiatto {
+	font-size: 30px;
+	font-style: italic;
+	color: darkblue;
+	margin-left: 10%;
+}
+
+.descrizione-piatto {
+	font-size: 20px;
+	font-style: italic;
+	margin-left: 10%;
+}
+
+.prezzo{
+	text-align: right;
+}
+
+.dconbordo {
+  border-bottom: double;
+  	margin-left: 8%;
+  	margin-right: 8%;
+  	margin-bottom:2%;
+}

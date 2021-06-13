@@ -24,7 +24,15 @@ import it.uniroma3.siw.service.OperaService;
 
 @Controller
 public class MainController {
+	
+	
+	@RequestMapping(value = {"/", "index"}, method = RequestMethod.GET)
+	public String index(Model model) {
+			return "index";
+	}
+}
 
+/*	
 	@Autowired
 	private CredenzialiService credenzialiService;
 
@@ -148,4 +156,4 @@ public class MainController {
 		return "admin/gestisci";
 	}
 	
-}
+}*/

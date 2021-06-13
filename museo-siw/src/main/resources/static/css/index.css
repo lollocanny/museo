@@ -1,0 +1,281 @@
+*{
+	 margin: 0;
+ 	 padding: 0;
+ 	 box-sizing: border-box;
+}
+
+body{
+	margin:0;
+	margin-bottom: 300px;
+	font-family: 'Times New Roman', Times, serif;
+	
+}
+
+main{
+	height:1160px;
+	padding:50px;
+	margin:auto;
+	min-width: 460px;
+	position:relative;
+	z-index: 2;
+	background-image: url(../img/opera3.jpg); ;
+	margin-bottom: 300px;
+	box-shadow: 3px 2px 2px 0px rgba(51,51,51,0,5);
+	background-repeat: no-repeat;
+	-moz-background-size: cover;
+	-webkit-background-size: cover ;
+	background-size: cover;
+}
+
+main .logo{
+	margin-top: 1%;
+}
+
+main .logo a {
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    padding:2% 1%;
+    margin:100;
+}
+
+main .containerBox{
+	margin:0;
+    text-align: center;
+    top: 50%;
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+    column-count: 3;
+    align-items: center;
+	padding:18% 5% 0% 0%;
+
+}
+
+main .containerBox .menu{
+	box-shadow: 0px 10px 10px -10px rgba(255,255,255,0.4);
+	transition:all 1s;
+}
+main .containerBox .menu:hover{
+	box-shadow: 0px 10px 10px -10px rgba(25, 181, 254, 1);
+	transform: translateY(-7px) ;
+}
+main .containerBox .menu a{
+	text-decoration: none;
+	color:white;
+}
+
+main .containerBox .menu a h2{
+	font-weight: bold;
+	background-color: none;
+	font-size:75px;
+	display:block;
+	text-transform: uppercase;
+	padding-right:10%;
+	}
+	
+.location{
+	box-shadow: 0px 10px 10px -10px rgba(255,255,255,0.4);
+	transition:all 1s;
+}
+
+.location:hover{
+	box-shadow: 0px 10px 10px -10px rgba(25, 181, 254, 1);
+	transform: translateY(-7px) ;
+}
+
+.location a{
+	text-decoration: none;
+	color:white;
+}
+
+.location a h2{
+	font-weight: bold;
+	background-color: none;
+	font-size:75px;
+	display:block;
+	text-transform: uppercase;
+}
+
+.opere{
+	box-shadow: 0px 10px 10px -10px rgba(255,255,255,0.4);
+	transition:all 1s;
+}
+
+.opere:hover{
+	box-shadow: 0px 10px 10px -10px rgba(25, 181, 254, 1);
+	transform: translateY(-7px) ;
+}
+
+.opere a{
+	text-decoration: none;
+	color:white;
+}
+
+.opere a h2{
+	font-weight: bold;
+	background-color: none;
+	font-size:75px;
+	display:block;
+	text-transform: uppercase;
+}
+
+.staff{
+	box-shadow: 0px 10px 10px -10px rgba(255,255,255,0.4);
+	transition:all 1s;
+}
+
+.staff:hover{
+	box-shadow: 0px 10px 10px -10px rgba(25, 181, 254, 1);
+	transform: translateY(-7px) ;
+}
+
+.staff a{
+	text-decoration: none;
+	color:white;
+}
+
+.staff a h2{
+	font-weight: bold;
+	background-color: none;
+	font-size:75px;
+	display:block;
+	text-transform: uppercase;
+}
+
+.freccia h2{
+	color:white;
+	font-size: 80px;
+	text-align: center;
+	margin-top: 450px;
+	margin-right: 50px;
+}
+	
+.footer{
+	position:fixed;
+	bottom:0;
+	width: 100%;
+	z-index: -1;
+	background-color:rgba(52, 152, 219, 1);
+	height:300px;
+	color: white;
+	text-align: left;
+ 	font-family: 'Times New Roman', Times, serif ;
+ 	padding: 55px 50px;
+ 	margin-top: 80px;
+}
+ 
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-right{
+ display: inline-block;
+ vertical-align: top;
+}
+ 
+.footer .footer-left{
+ width: 40%;
+}
+ 
+.footer h3{
+ color:  #ffffff;
+ font: normal 36px 'Cookie', cursive;
+ margin: 0;
+}
+ 
+.footer .descrizione{
+ color:  #ffffff;
+ margin: 20px 0 20px;
+ padding: 0;
+ font-size: 22px;
+}
+
+ 
+.footer .footer-company-name{
+ color:  white;
+ font-size: 16px;
+ font-weight: normal;
+ margin:0;
+}
+ 
+ 
+.footer .footer-center{
+ width: 35%;
+}
+ 
+.footer .footer-center i{
+ background-color:  deepskyblue;
+ color: #ffffff;
+ font-size: 25px;
+ width: 38px;
+ height: 38px;
+ border-radius: 50%;
+ text-align: center;
+ line-height: 42px;
+ margin: 10px 15px;
+ vertical-align: middle;
+}
+ 
+.footer .footer-center i.fa-envelope{
+ font-size: 17px;
+ line-height: 38px;
+}
+ 
+.footer .footer-center p{
+ display: inline-block;
+ color: #ffffff;
+ vertical-align: middle;
+ margin:0;
+ font-size: 18px;
+}
+ 
+.footer .footer-right{
+ width: 20%;
+}
+ 
+.footer .footer-company-about{
+ line-height: 20px;
+ color:  white;
+ font-size: 22px;
+ font-weight: normal;
+ margin: 0;
+ margin-top: 0px;
+}
+ 
+.footer .footer-icons{
+ margin-top: 25px;
+ border-bottom:1px solid white ;
+ margin-bottom: 20px;
+ padding-bottom: 20px;
+}
+ 
+.footer .footer-icons a{
+ display: inline-block;
+ width: 50px;
+ height: 50px;
+ cursor: pointer;
+ background-color:  deepskyblue;
+ border-radius: 3px;
+ 
+ font-size: 40px;
+ color: #ffffff;
+ text-align: center;
+ line-height: 50px;
+ margin-right: 15px;
+ margin-bottom: 2px;
+}
+
+.footer .admin{
+	margin-top: 5px;
+}
+.footer .admin a{
+	text-decoration:none;
+	font-size: 16px;
+	color:white;
+}
+
+
+ 
+.title {
+  overflow: hidden;
+  height: auto;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>riflessirestaurant.com</title>
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<main>
+		<div class="logo">
+			<a th:href="@{/}">
+				<img class="logo" th:src="@{/img/logoPiccolo.png}" alt="">
+			</a>
+		</div>
+		
+		<div class="containerBox">
+			<div class="menu">
+				<a href="/visualizzaMenu" class="menuTitolo" data-async>
+					<h2>Collezioni</h2>
+				</a>
+			</div>
+			
+			<div class="opere">
+				<a th:href="@{/visualizzaOpere}" class="opere" data-async>
+					<h2>Opere</h2>
+				</a>
+			</div>
+			
+			<div class="staff">
+				<a href="/visualizzaStaff" class="staffTitolo" data-async>
+					<h2>Artisti</h2>
+				</a>
+			</div>
+		</div>
+		<div class="freccia">
+			<h2>^</h2>
+		</div>
+	</main>
+	<footer class="footer">
+
+		<div class="footer-left">
+
+			<img src="/img/logoscritta.jpg" alt="">
+
+			<p class="descrizione">
+				Ristorante sul mare situato nella bellissima cittadina di Santa Marinella RM. <br>
+				Primi e secondi di pesce a km 0 di prima qualità. 
+			</p>
+
+			<p class="footer-company-name">lollo&cioffi &copy; 2021</p>
+		</div>
+
+		<div class="footer-center">
+
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p>Via Aurelia 675 RM Santa Marinella, Italia</p>
+			</div>
+
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>+39 351 2323234</p>
+			</div>
+
+			<div>
+				<i class="fa fa-envelope"></i>
+				<p>riflessi@gmail.com</p>
+			</div>
+
+		</div>
+
+		<div class="footer-right">
+
+			<p class="footer-company-about">
+				Ci trovate anche su:
+			</p>
+
+			<div class="footer-icons">
+				<a href="https://www.facebook.com/RiflessiRestaurant"><i class="fa fa-facebook"></i></a>
+				<a href="https://www.instagram.com/riflessi_restaurant/"><i class="fa fa-instagram"></i></a>
+			</div>
+			
+			<div class="admin">
+				<p><a href="/visualizzaAdmin" data-async>ADMIN</a></p>
+			</div>
+		</div>
+
+	</footer>
+</body>
+
+</html>
