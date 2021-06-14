@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,46 +22,30 @@ public class Artista{
 	public Artista() {
 		
 	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 	
+	@Size(min=2, max=100, message="Il nome deve essere compreso tra 2 e 100 caratteri")
 	@Column(nullable = false)
 	private String nome;
-
+	
+	@Size(min=2, max=100, message="Il cognome deve essere compreso tra 2 e 100 caratteri")
 	@Column(nullable = false)
 	private String cognome;
-
-	@Column(nullable = false)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private LocalDate dataNascita;
-
-	@Column(nullable = false)
-	private String luogoNascita;
 	
+	@Size(min=2, max=100, message="La nazione deve essere compresa tra 2 e 100 caratteri")
 	@Column(nullable = false)
 	private String nazionalita;
-
-	private LocalDate dataMorte;
-
-	private String immagine;
 	
-	private String luogoMorte;
+	@Size(min=1, message="Campo obbligatorio")
+	private String dataNascita;
 	
-	private String descrizione;
-	
-	
-	private String unspalsLink;
+	private String dataMorte;
 	
 	@OneToMany(mappedBy = "autore", cascade = CascadeType.ALL)
 	private List<Opera> opere;
-	
-	@Transient
-	public String getPathImmagine() {
-		if (immagine == null) return null;
-		
-		return "/images/artists/" + immagine;
-	}
 
 	public Long getId() {
 		return id;
@@ -86,22 +71,6 @@ public class Artista{
 		this.cognome = cognome;
 	}
 
-	public LocalDate getDataNascita() {
-		return dataNascita;
-	}
-
-	public void setDataNascita(LocalDate dataNascita) {
-		this.dataNascita = dataNascita;
-	}
-
-	public String getLuogoNascita() {
-		return luogoNascita;
-	}
-
-	public void setLuogoNascita(String luogoNascita) {
-		this.luogoNascita = luogoNascita;
-	}
-
 	public String getNazionalita() {
 		return nazionalita;
 	}
@@ -110,44 +79,20 @@ public class Artista{
 		this.nazionalita = nazionalita;
 	}
 
-	public LocalDate getDataMorte() {
+	public String getDataNascita() {
+		return dataNascita;
+	}
+
+	public void setDataNascita(String dataNascita) {
+		this.dataNascita = dataNascita;
+	}
+
+	public String getDataMorte() {
 		return dataMorte;
 	}
 
-	public void setDataMorte(LocalDate dataMorte) {
+	public void setDataMorte(String dataMorte) {
 		this.dataMorte = dataMorte;
-	}
-
-	public String getImmagine() {
-		return immagine;
-	}
-
-	public void setImmagine(String immagine) {
-		this.immagine = immagine;
-	}
-
-	public String getLuogoMorte() {
-		return luogoMorte;
-	}
-
-	public void setLuogoMorte(String luogoMorte) {
-		this.luogoMorte = luogoMorte;
-	}
-
-	public String getDescrizione() {
-		return descrizione;
-	}
-
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
-	}
-
-	public String getUnspalsLink() {
-		return unspalsLink;
-	}
-
-	public void setUnspalsLink(String unspalsLink) {
-		this.unspalsLink = unspalsLink;
 	}
 
 	public List<Opera> getOpere() {
@@ -165,15 +110,10 @@ public class Artista{
 		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
 		result = prime * result + ((dataMorte == null) ? 0 : dataMorte.hashCode());
 		result = prime * result + ((dataNascita == null) ? 0 : dataNascita.hashCode());
-		result = prime * result + ((descrizione == null) ? 0 : descrizione.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((immagine == null) ? 0 : immagine.hashCode());
-		result = prime * result + ((luogoMorte == null) ? 0 : luogoMorte.hashCode());
-		result = prime * result + ((luogoNascita == null) ? 0 : luogoNascita.hashCode());
 		result = prime * result + ((nazionalita == null) ? 0 : nazionalita.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((opere == null) ? 0 : opere.hashCode());
-		result = prime * result + ((unspalsLink == null) ? 0 : unspalsLink.hashCode());
 		return result;
 	}
 
@@ -201,30 +141,10 @@ public class Artista{
 				return false;
 		} else if (!dataNascita.equals(other.dataNascita))
 			return false;
-		if (descrizione == null) {
-			if (other.descrizione != null)
-				return false;
-		} else if (!descrizione.equals(other.descrizione))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (immagine == null) {
-			if (other.immagine != null)
-				return false;
-		} else if (!immagine.equals(other.immagine))
-			return false;
-		if (luogoMorte == null) {
-			if (other.luogoMorte != null)
-				return false;
-		} else if (!luogoMorte.equals(other.luogoMorte))
-			return false;
-		if (luogoNascita == null) {
-			if (other.luogoNascita != null)
-				return false;
-		} else if (!luogoNascita.equals(other.luogoNascita))
 			return false;
 		if (nazionalita == null) {
 			if (other.nazionalita != null)
@@ -241,13 +161,9 @@ public class Artista{
 				return false;
 		} else if (!opere.equals(other.opere))
 			return false;
-		if (unspalsLink == null) {
-			if (other.unspalsLink != null)
-				return false;
-		} else if (!unspalsLink.equals(other.unspalsLink))
-			return false;
 		return true;
 	}
+	
 	
 	
 }

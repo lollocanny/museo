@@ -51,33 +51,5 @@ public class ArtistaController {
 			return "error";
 		}
 	}
-	
-	@RequestMapping(value="/admin/artista/save", method=RequestMethod.POST)
-	public String saveArtista(@ModelAttribute("artista") Artista artista,
-							  @RequestParam("foto") MultipartFile multipartFile,
-							  String submit, BindingResult bindingResult,
-							  Model model) throws IOException {
-		
-		if("indietro".equals(submit)) {
-			return "admin/gestisci";
-		}
-		
-		artistaValidator.validate(artista, bindingResult);
-		
-		if(!bindingResult.hasErrors()) {
-			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			
-			artista.setImmagine(fileName);
-			
-			artistaService.saveArtista(artista);
-			
-			CaricaFile.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
-			
-			return "admin/gestisci";
-		}
-
-		model.addAttribute("artista", artista);
-		return "admin/artista-form";
-	}
 
 }

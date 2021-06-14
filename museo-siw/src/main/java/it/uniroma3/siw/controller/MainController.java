@@ -128,31 +128,6 @@ public class MainController {
 		return getCollezioni(model);
 	}
 	
-	@RequestMapping(value="/gestisci", method=RequestMethod.GET)
-	public String gestisci(@ModelAttribute("submit") String submit, Model model) {
-		
-		/*if("artista".equals(submit)) {
-			model.addAttribute("artista", new Artista());
-			
-			return "admin/artista-form";
-		}
-		else if("opera".equals(submit)) {
-			model.addAttribute("opera", new Opera());
-			model.addAttribute("collezioni", collezioneService.getAllCollezioni());
-			model.addAttribute("artisti", artistaService.getAllArtisti());
-			
-			return "admin/opera-form";
-		}
-		
-		
-		model.addAttribute("collezione", new Collezione());
-		model.addAttribute("dipendenti", dipendentiService.getAllDipendenti());
-		
-		return "admin/collezione-form";
-		*/
-		
-		return "gestisci.html";
-	}
 	
 	@RequestMapping(value="/admin/menu", method=RequestMethod.GET)
 	public String menu(Model model) {

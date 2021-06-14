@@ -1,0 +1,110 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+  background:rgba(31, 58, 147, 1);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body h1{
+	font-size: 50px;
+	margin-top: 40px;
+	color:white;
+	text-align: center;
+}
+
+body .home {
+	margin-top: 3.5%;
+	margin-left: 4.3%;
+	box-shadow: 0px 0px 0px 2px #f0f1f5;
+	background-color:transparent;
+	border-radius:34px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Times New Roman;
+	font-size:17px;
+	padding:10px 4px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+	width:90px;
+	text-align: center;
+}
+
+body .home:hover {
+	background:linear-gradient(to bottom, white 5%, #7892c2 100%);
+	background-color:white;
+}
+
+body .home:active {
+	position:relative;
+	top:1px;
+}	
+
+.aggiungiOpera{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.aggiungiArtista{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.aggiungiCollezione{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.rimuoviOpera{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.rimuoviArtista{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.rimuoviCollezione{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.operazioni a{
+  display: block;
+  color:white;
+  text-decoration: none;
+  font-size: 27px;
+  margin-top: 100px;
+}
+
+.operazioni a::after{
+  content: "";
+  background: white;
+  mix-blend-mode: exclusion;
+  width: calc(100% + 20px);
+  height: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+  transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.operazioni a:hover::after{
+  height: calc(100% + 8px)
+}

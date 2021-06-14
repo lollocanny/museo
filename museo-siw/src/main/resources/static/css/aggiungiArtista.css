@@ -1,0 +1,159 @@
+*{margin: 0; padding: 0}
+    
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+        background-size: 100%;
+        background-color:black
+        
+        
+    }
+
+    .rt-heading{
+       position: relative; 
+        font-size: 20px;
+        color: #8BC34A;
+        text-align: center;
+        margin:  50px auto 0 auto;
+
+
+    }
+
+   
+    .codehim-form{
+        max-width: 400px;
+        min-height: 400px;
+        box-sizing: border-box;
+        background: #8BC34A;
+        box-shadow: 4px 2px 16px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        margin:  150px auto 0 auto;
+        padding: 25px;
+        color: black;
+        margin-top:30px;
+        
+
+            
+    }
+    .cm-input{
+        display: block;
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%; 
+        margin: 15px auto;
+        border-radius: 20px;
+        border: 2px solid #ccc;
+        
+        
+    }
+    .cm-input:focus{
+        outline: 0;
+        border-color: #f9cb81;
+        
+    }
+    .cm-input:invalid{
+        border-color: #e41b17;
+        
+    }
+    
+    
+    .gr-bg{
+        background: white;
+   
+    }
+    
+    
+
+    
+    .btn-login{
+        display: block;
+        width: 50%;
+        padding: 10px;
+        border: 0;
+        color: black;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-left:25%;
+        position:relative;
+        margin-top:10%;
+         
+    }
+    .btn-login:focus{
+        outline: 0;
+    }
+    
+    .btn-login:hover{
+        opacity: 0.8;
+        transition: .3s;
+    }
+    
+   
+    .form-title{
+        padding:1px;
+        text-align: center;
+        position: relative;
+        
+        
+    }
+    .form-title h2{
+        color: black;
+    }
+    .form-title .user-icon{
+        position: absolute;
+        border:1px solid black;
+        background-color:#8BC34A;
+        font-size: 42px;
+        color: black;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        text-align: center;
+        border-radius: 45px;
+        top: -60px;
+        left: -45px;
+        
+    }
+    
+     .has-error{
+    text-align:left;
+    margin-top:2%
+}
+
+
+    .help-block{
+        color: red;
+        text-align:left;
+    }
+
+    .btn-outline-success{
+    margin-top:20px;
+    color:#8BC34A;
+    border-color:#8BC34A;
+}
+
+.btn-outline-success:hover{
+    color:black;
+    background-color:#8BC34A;
+}
+
+h1{
+    margin-top:20px;
+    text-align:center;
+    color:#8BC34A;
+}
+
+.newArtist:link, .newArtist:visited {
+  background-color: white;
+  color: black;
+  border: 2px solid #8BC34A;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newArtist:hover, .newArtist:active {
+  background-color: black;
+  color: white;
+}
