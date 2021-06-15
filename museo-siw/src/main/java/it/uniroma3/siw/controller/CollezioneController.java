@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.model.Collezione;
+import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.validator.CollezioneValidator;
 
@@ -43,28 +44,32 @@ public class CollezioneController {
     		return "collezioni";
     }
 
-
+    
+    @RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.GET)
+	public String aggiungiOpera(Model model) {
+    	model.addAttribute("collezione", new Collezione());
+		return "aggiungiCollezione";
+	}
 	
-	@RequestMapping(value="/admin/collezione/save", method=RequestMethod.POST)
+	@RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.POST)
 	public String saveArtista(@ModelAttribute("collezione") Collezione collezione, 
 							  @ModelAttribute("submit") String submit, 
 							  BindingResult bindingResult, Model model) {
-		
-		if("indietro".equals(submit)) {
-			return "admin/gestisci";
-		}
+	
 		
 		collezioneValidator.validate(collezione, bindingResult);
 		
-		if(!bindingResult.hasErrors()) {
+		if(bindingResult.hasErrors()) {
 			
-			collezioneService.saveCollezione(collezione);
+			return "aggiungiCollezione";
 			
-			return "admin/gestisci";
+		}
+		else {
+		collezioneService.saveCollezione(collezione);
 		}
 		
 		model.addAttribute("collezione", collezione);
-		return "admin/collezione-form";
+		return "gestisci";
 	}
 
 }

@@ -31,13 +31,12 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
         // authorization paragraph: qui definiamo chi può accedere a cosa
         .authorizeRequests()
         // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-        .antMatchers(HttpMethod.GET, "/", "/index" , "/login", "/artista", "/artista/**", "/visualizzaOpere/**","/opere/**", "/collezione/**", "/css/**", "/img/**").permitAll()
-        .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/artista/**", "/artisti/**","/opera/**","/opere/**", "/collezione/**", "/collezion1/**", "/css/**", "/img/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/artista/**", "/artisti/**","/opera/**","/opere/**", "/collezione/**", "/collezioni/**", "/css/**", "/img/**").permitAll()
         // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
         .antMatchers(HttpMethod.POST, "/login").permitAll()
         // solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
-        .antMatchers(HttpMethod.GET, "/artista/**", "/admin/**","/homePageGestisci/**").hasAnyAuthority(ADMIN_ROLE)
-        .antMatchers(HttpMethod.POST, "/artista/**","/homePageGestisci/**").hasAnyAuthority(ADMIN_ROLE)
+        .antMatchers(HttpMethod.GET, "/artista/**", "/collezione/**",  "/opera/**","/admin/**","/homePageGestisci/**").hasAnyAuthority(ADMIN_ROLE)
+        .antMatchers(HttpMethod.POST, "/artista/**","/collezione/**",  "/opera/**","/homePageGestisci/**").hasAnyAuthority(ADMIN_ROLE)
         // tutti gli utenti autenticati possono accere alle pagine rimanenti 
         .anyRequest().authenticated()
 

@@ -14,41 +14,35 @@ import javax.persistence.ManyToOne;
 
 public class Opera {
 	
-	public Opera() {
-		
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(nullable=false)
 	private String titolo;
 	
+	@Column(nullable=false)
 	private String descrizione;
 	
-	private LocalDate data;
+	private String data;
 	
 	private String dimensione;
 	
 	private String tecnica;
-
 	
 	@Column(nullable = true, length = 64)
 	private String immagine;
 
 	@ManyToOne
-	private Artista autore;
+	private Artista artista;
 	
 	@ManyToOne
 	private Collezione collezione;
-	
-	@Transient
-	public String getPathImmagine() {
-		if (immagine == null) return null;
-		
-		return "/img" + immagine;
-	}
 
+	public Opera() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -73,11 +67,11 @@ public class Opera {
 		this.descrizione = descrizione;
 	}
 
-	public LocalDate getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
@@ -105,12 +99,12 @@ public class Opera {
 		this.immagine = immagine;
 	}
 
-	public Artista getAutore() {
-		return autore;
+	public Artista getArtista() {
+		return artista;
 	}
 
-	public void setAutore(Artista autore) {
-		this.autore = autore;
+	public void setArtista(Artista artista) {
+		this.artista = artista;
 	}
 
 	public Collezione getCollezione() {
@@ -125,7 +119,7 @@ public class Opera {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((autore == null) ? 0 : autore.hashCode());
+		result = prime * result + ((artista == null) ? 0 : artista.hashCode());
 		result = prime * result + ((collezione == null) ? 0 : collezione.hashCode());
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((descrizione == null) ? 0 : descrizione.hashCode());
@@ -146,10 +140,10 @@ public class Opera {
 		if (getClass() != obj.getClass())
 			return false;
 		Opera other = (Opera) obj;
-		if (autore == null) {
-			if (other.autore != null)
+		if (artista == null) {
+			if (other.artista != null)
 				return false;
-		} else if (!autore.equals(other.autore))
+		} else if (!artista.equals(other.artista))
 			return false;
 		if (collezione == null) {
 			if (other.collezione != null)
@@ -193,6 +187,8 @@ public class Opera {
 			return false;
 		return true;
 	}
+
+	
 
 
 	

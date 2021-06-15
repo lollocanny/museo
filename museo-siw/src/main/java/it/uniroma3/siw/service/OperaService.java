@@ -31,16 +31,17 @@ public class OperaService {
 	public void saveOpera(Opera o) {
 		operaRepository.save(o);
 	}
+	
 	@Transactional
-	public void saveOpera(Opera o, Long artista_id, String collezione_nome) {
-		Artista a = artistaRepository.findById(artista_id).orElse(null);
+	public void saveOpera(Opera o, String artista_id, String collezione_nome) {
+		Artista a = artistaRepository.findById(Long.parseLong(artista_id)).orElse(null);
 		Collezione c = collezioneRepository.findByNome(collezione_nome).orElse(null);
 		
 		if(a == null || c == null) {
 			return;
 		}
 		
-		o.setAutore(a);
+		o.setArtista(a);
 		o.setCollezione(c);
 		
 		operaRepository.save(o);

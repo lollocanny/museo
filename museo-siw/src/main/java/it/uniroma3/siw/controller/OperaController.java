@@ -4,6 +4,8 @@ package it.uniroma3.siw.controller;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.model.Opera;
+import it.uniroma3.siw.service.ArtistaService;
 import it.uniroma3.siw.service.CaricaFile;
+import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.service.MvcConfig;
 import it.uniroma3.siw.service.OperaService;
 import it.uniroma3.siw.validator.OperaValidator;
@@ -28,8 +32,18 @@ import it.uniroma3.siw.validator.OperaValidator;
 public class OperaController {
 	@Autowired
 	private OperaService operaService;
+	
+	@Autowired
+	private CollezioneService collezioneService;
+	
+	@Autowired
+	private ArtistaService artistaService;
+	
+	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	@Autowired
+	private OperaValidator operaValidator;
 
     
 	@RequestMapping(value = "/opera/{id}")
@@ -39,9 +53,9 @@ public class OperaController {
 		try {
 			Opera o = operaService.getOpera(id);
 			model.addAttribute("opera", o);
-			model.addAttribute("autore", o.getAutore());
+			model.addAttribute("artista", o.getArtista());
 
-			return "opera";
+			return "opera.html";
 
 		} catch (NoSuchElementException e)
 		{
@@ -55,86 +69,47 @@ public class OperaController {
     		return "opere";
     }
 
-}
 
-/*
- * 
- * 
- * 
- * 
-	    @RequestMapping(value = "/opera/{id}", method = RequestMethod.GET)
-    public String getOpera(@PathVariable("id") Long id, Model model) {
-    	model.addAttribute("opera", this.operaService.getOpera(id));
-    	return "opera";
-    }
+   
+	@RequestMapping(value="/homePageGestisci/aggiungiOpera", method=RequestMethod.GET)
+	public String aggiungiOpera(Model model) {
+		model.addAttribute("opera", new Opera());
+		model.addAttribute("collezioni", collezioneService.getAllCollezioni());
+		model.addAttribute("artisti", artistaService.getAllArtisti());
+		return "aggiungiOpera";
+	}
 	
 	
-		@RequestMapping(value = {"/visualizzaOpere"}, method= RequestMethod.GET)
-	public String visualizzaOpere(Model model) {
-		logger.debug("visualizzaOpere");
-		return "opere.html";
-	}
-
-	@RequestMapping(value = {"/visualizzaOpera"}, method= RequestMethod.GET)
-	public String visualizzaOpera(Model model) {
-		logger.debug("visualizzaOpera");
-		return "opera.html";
-	}
-
-	@Autowired
-	private OperaValidator operaValidator;
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	@RequestMapping(value = "/opera/{id}")
-	public String getOpera(@PathVariable("id") Long id, Model model) {
-
-		logger.debug("getOpera");
-		try {
-			Opera o = operaService.getOpera(id);
-			model.addAttribute("opera", o);
-			model.addAttribute("autore", o.getAutore());
-
-			return "opera.html";
-
-		} catch (NoSuchElementException e)
-		{
-			return "error.html";
+	@RequestMapping(value="/homePageGestisci/aggiungiOpera", method=RequestMethod.POST)
+	public String salvaOpera(@Valid @ModelAttribute Opera opera,
+			//@ModelAttribute("artista_id") String artista_id,
+			//@ModelAttribute("collezione_nome") String collezione_nome,
+			@RequestParam("foto") MultipartFile multipartFile,
+			@ModelAttribute("submit") String submit, 
+			BindingResult bindingResult ,Model model) throws IOException {
+		
+		this.operaValidator.validate(opera, bindingResult);
+		
+		if(bindingResult.hasErrors()) {
+			return "aggiungiOpera";
 		}
-	}
-
-	@RequestMapping(value="/admin/opera/save", method=RequestMethod.POST)
-	public String saveOpera(@ModelAttribute("opera") Opera opera,
-							@ModelAttribute("artista_id") String artista_id,
-							@ModelAttribute("collezione_id") String collezione_nome,
-							@RequestParam("foto") MultipartFile multipartFile,
-							@ModelAttribute("submit") String submit, 
-							BindingResult bindingResult ,Model model) throws IOException {
-
-
-		if("indietro".equals(submit)) {
-			return "admin/gestisci";
-		}
-
-		operaValidator.validate(opera, bindingResult);
-
-		if(!bindingResult.hasErrors()) {
-
+		
+		else {
 			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-
+			
 			opera.setImmagine(fileName);
-
-			operaService.saveOpera(opera, Long.parseLong(artista_id), collezione_nome);
-
+			
+			operaService.saveOpera(opera);
+			
 			CaricaFile.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
-
-			return "admin/gestisci";
+			
 		}
-
+		
 		model.addAttribute("opera", opera);
-
-		return "admin/opera-form";
+		
+		return "gestisci";
 	}
+	
 
 
-}*/
+}

@@ -16,7 +16,7 @@
 			<p th:text="*{descrizione}" class="descrizione">Guernica è un quadro di Pablo Picasso. L'ispirazione per l'opera, improvvisa e all'ultimo minuto, arrivò solo dopo il bombardamento di Guernica.</p> 	
 			<div align="center"><img class="foto1" th:src="@{/img/opera4.jpg}" height="500" width=""></div>
 			<div>
-			<span class="informazioni-opera">Autore: <span th:text="${opera.autore.nome} + ${opera.autore.cognome} "></span></span>
+			<span class="informazioni-opera">Artista: <span th:text="${opera.artista.nome} + ${opera.artista.cognome} "></span></span>
 			<span class="informazioni-opera">Anno: <span th:text="*{data}"></span></span>
 			<span class="informazioni-opera">Dimensioni: <span th:text="*{dimensione}"></span></span>
 			<span class="informazioni-opera">Tecnica: <span th:text="*{tecnica}"></span></span>

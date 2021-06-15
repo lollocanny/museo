@@ -75,7 +75,7 @@ public class ArtistaController {
 			
 		} catch (NoSuchElementException e)
 		{
-			model.addAttribute("message", "Non è stato trovato nessun autore");
+			model.addAttribute("message", "Non è stato trovato nessun artista");
 			return "error";
 		}
 	}

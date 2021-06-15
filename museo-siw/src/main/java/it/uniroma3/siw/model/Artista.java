@@ -38,7 +38,7 @@ public class Artista{
 	private String immagine;
 	
 	
-	@OneToMany(mappedBy = "autore", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "artista", cascade = CascadeType.ALL)
 	private List<Opera> opere;
 	
 	public Artista() {

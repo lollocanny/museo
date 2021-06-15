@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>museo.it</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet"  th:href="@{/css/aggiungiCollezione.css}">
+</head>
+<body>
+	<a href="/homePageGestisci" class="indietro">Indietro</a>
+    <section>
+
+                <h1>Nuova Collezione</h1>
+                 
+                     <form class="codehim-form" th:action="@{/homePageGestisci/aggiungiCollezione}" th:object="${collezione}" method="POST" enctype="multipart/form-data">                                                            
+                        
+                             <div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error : ''">
+                                 <label th:text="#{richiesta.collezione.nome}">Nome
+               						...                  
+                                 </label>
+                                 <div th:classappend="${#fields.hasErrors('nome')} ? 'input-icon right' : ''">
+                                  <i th:if="${#fields.hasErrors('nome')}" class="fa fa-exclamation tooltips" data-original-title="Il nome deve essere compreso tra 2 e 100 caratteri" data-container="body"></i>
+                                 <input type="text" class="cm-input"  th:field="*{nome}" placeholder="Tra 2 e 100 caratteri"/>
+                                 <span th:if="${#fields.hasErrors('nome')}" class="help-block" th:errors="*{nome}"></span>
+                                 </div>
+                             </div>    
+                               
+                             <div class="form-group" th:classappend="${#fields.hasErrors('descrizione')} ? has-error : ''">
+               					<label th:text="#{richiesta.opera.descrizione}">Descrizione
+               						...                  
+                                 </label>
+                                 <div th:classappend="${#fields.hasErrors('descrizione')} ? 'input-icon right' : ''">
+                                  <i th:if="${#fields.hasErrors('descrizione')}" class="fa fa-exclamation tooltips" data-original-title="La descrizione deve essere compresa tra 2 e 100 caratteri" data-container="body"></i>
+                                 <input type="text" class="cm-input"  th:field="*{descrizione}" placeholder="Tra 2 e 100 caratteri"/>
+                                 <span th:if="${#fields.hasErrors('descrizione')}" class="help-block" th:errors="*{descrizione}"></span>
+                                 </div>
+                             </div>    
+
+							<label th:text="#{richiesta.collezione.curatore}">
+									...
+							</label>
+								<input type="text" th:field="*{curatore}" class="cm-input"/>
+			
+                         <div class="form-actions">
+                            <button type="submit" class="btn-login  gr-bg" th:text="#{button.salva}">Invia</button>
+                         </div>
+                     </form>
+               
+    </section>
+</body>
+</html>
