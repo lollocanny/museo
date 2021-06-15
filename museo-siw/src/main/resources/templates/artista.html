@@ -13,7 +13,7 @@
 			
 		<tr th:if="${artista}" th:object="${artista}">
 		<td>
-			<p class="nomeartista" th:text="*{nome} + *{cognome}">Pablo Picasso</p> <img class="foto1" th:src="@{/img/artista.jpg}" height="300" width="300" align="right">
+			<p class="nomeartista" th:text="*{nome} + *{cognome}">Pablo Picasso</p> <img class="foto1" th:src="@{'/img/' + *{immagine}}" height="300" width="300" align="right">
 			<br>
 			<p class="informazioni-artista">Data di nascita: <span th:text="*{dataNascita}"></span></p>
 			<br>

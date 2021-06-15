@@ -37,7 +37,6 @@ public class Artista{
 	
 	private String immagine;
 	
-	private String unspalsLink;
 	
 	@OneToMany(mappedBy = "autore", cascade = CascadeType.ALL)
 	private List<Opera> opere;
@@ -128,14 +127,6 @@ public class Artista{
 		this.luogoMorte = luogoMorte;
 	}
 
-	public String getUnspalsLink() {
-		return unspalsLink;
-	}
-
-	public void setUnspalsLink(String unspalsLink) {
-		this.unspalsLink = unspalsLink;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -197,12 +188,6 @@ public class Artista{
 		return true;
 	}
 	
-	@Transient
-	public String getPathImmagine() {
-		if (immagine == null) return null;
-		
-		return "/img" + immagine;
-	}
 
 	
 }

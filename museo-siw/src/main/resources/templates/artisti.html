@@ -16,7 +16,7 @@
 		<tr th:each="artista : ${artisti}">
 		<td>
 			<a class="nomeartista" href="artista.html" 
-			th:href="@{'/artista' + '/' + ${artista.id}}" th:text="${artista.nome} + ${artista.cognome}" >Pablo Picasso</a> <img class="foto1" th:src="@{/img/artista.jpg}" height="300" width="300" align="right">
+			th:href="@{'/artista' + '/' + ${artista.id}}" th:text="${artista.nome} + ${artista.cognome}" >Pablo Picasso</a> <img class="foto1" th:src="@{'/img/' + *{artista.immagine}}" height="300" width="300" align="right">
 			<br>
 			<p class="informazioni-artista">Data di nascita: <span th:text="${artista.dataNascita}"></span></p>
 			<br>

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
-	public static final String imagesPath = "src/main/resources/static/images";
+	public static final String imagesPath = "src/main/resources/static/img";
  
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
