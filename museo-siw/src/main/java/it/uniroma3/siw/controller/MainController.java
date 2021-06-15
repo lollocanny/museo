@@ -7,19 +7,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.uniroma3.siw.model.Artista;
-import it.uniroma3.siw.model.Collezione;
 import it.uniroma3.siw.model.Credenziali;
-import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.ArtistaService;
 import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.service.CredenzialiService;
-import it.uniroma3.siw.service.CuratoreService;
 import it.uniroma3.siw.service.OperaService;
 
 @Controller
@@ -45,8 +40,6 @@ public class MainController {
 	@Autowired
 	private OperaService operaService;
 
-	@Autowired
-	private CuratoreService dipendentiService;
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

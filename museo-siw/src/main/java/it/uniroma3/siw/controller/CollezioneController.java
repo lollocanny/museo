@@ -34,7 +34,6 @@ public class CollezioneController {
 	
 	@RequestMapping(value="/admin/collezione/save", method=RequestMethod.POST)
 	public String saveArtista(@ModelAttribute("collezione") Collezione collezione, 
-							  @ModelAttribute("curatore_matricola") String curatore_matricola,
 							  @ModelAttribute("submit") String submit, 
 							  BindingResult bindingResult, Model model) {
 		
@@ -46,7 +45,7 @@ public class CollezioneController {
 		
 		if(!bindingResult.hasErrors()) {
 			
-			collezioneService.saveCollezione(collezione, curatore_matricola);
+			collezioneService.saveCollezione(collezione);
 			
 			return "admin/gestisci";
 		}

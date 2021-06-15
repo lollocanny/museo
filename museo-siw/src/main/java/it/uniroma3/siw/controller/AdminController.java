@@ -65,25 +65,4 @@ public class AdminController {
 
 		return "gestisci.html";
 	}
-	
-	@RequestMapping(value="/homePageGestisci/aggiungiArtista", method=RequestMethod.GET)
-	public String aggiungiOpera(Model model) {
-		model.addAttribute("artista", new Artista());
-		return "aggiungiArtista.html";
-	}
-	
-	@RequestMapping(value="/homePageGestisci/aggiungiArtista", method=RequestMethod.POST)
-	public String salvaArtista(@Valid @ModelAttribute Artista artista,
-							  BindingResult bindingResult,Model model) {
-		
-		//this.artistaValidator.validate(artista, bindingResult);
-		
-		/*if(!bindingResult.hasErrors()) {
-			model.addAttribute(artista);
-			artistaService.saveArtista(artista);
-			return "aggiungiArtista.html";
-		}*/
-
-		return "aggiungiArtista.html";
-	}
 }

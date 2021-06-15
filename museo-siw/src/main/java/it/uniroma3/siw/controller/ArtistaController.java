@@ -3,6 +3,8 @@ package it.uniroma3.siw.controller;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +53,31 @@ public class ArtistaController {
 			return "error";
 		}
 	}
+	
+	@RequestMapping(value="/homePageGestisci/aggiungiArtista", method=RequestMethod.GET)
+	public String aggiungiArtista(Model model) {
+		model.addAttribute("artista", new Artista());
+		return "aggiungiArtista.html";
+	}
+	
+	@RequestMapping(value="/homePageGestisci/aggiungiArtista", method=RequestMethod.POST)
+	public String salvaArtista(@Valid @ModelAttribute Artista artista,
+								@RequestParam("foto") MultipartFile multipartFile,
+								String submit,BindingResult bindingResult,Model model) throws IOException{
+		
+		this.artistaValidator.validate(artista, bindingResult);
+		
+		if(bindingResult.hasErrors()) {
+			return "aggiungiArtista";
+		}
+		
+		else {
+			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+			artista.setImmagine(fileName);
+			artistaService.saveArtista(artista);
+			CaricaFile.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
+		}
 
+		return "gestisci";
+	}
 }

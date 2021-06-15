@@ -18,8 +18,7 @@ public class Collezione {
 
 	private String descrizione;
 
-	@ManyToOne
-	private Curatore curatore;
+	private String curatore;
 	
 	@OneToMany(mappedBy = "collezione", cascade = CascadeType.ALL)
 	private List<Opera> opere;
@@ -40,11 +39,12 @@ public class Collezione {
 		this.descrizione = descrizione;
 	}
 
-	public Curatore getCuratore() {
+	
+	public String getCuratore() {
 		return curatore;
 	}
 
-	public void setCuratore(Curatore curatore) {
+	public void setCuratore(String curatore) {
 		this.curatore = curatore;
 	}
 

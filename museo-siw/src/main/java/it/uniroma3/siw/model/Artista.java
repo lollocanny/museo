@@ -1,7 +1,6 @@
 package it.uniroma3.siw.model;
 
 import java.beans.Transient;
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,41 +10,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-
 public class Artista{
 
-	public Artista() {
-		
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; 
 	
-	@Size(min=2, max=100, message="Il nome deve essere compreso tra 2 e 100 caratteri")
 	@Column(nullable = false)
 	private String nome;
 	
-	@Size(min=2, max=100, message="Il cognome deve essere compreso tra 2 e 100 caratteri")
 	@Column(nullable = false)
 	private String cognome;
 	
-	@Size(min=2, max=100, message="La nazione deve essere compresa tra 2 e 100 caratteri")
 	@Column(nullable = false)
 	private String nazionalita;
 	
-	@Size(min=1, message="Campo obbligatorio")
 	private String dataNascita;
+	
+	private String luogoNascita;
 	
 	private String dataMorte;
 	
+	private String luogoMorte;
+	
+	private String immagine;
+	
+	private String unspalsLink;
+	
 	@OneToMany(mappedBy = "autore", cascade = CascadeType.ALL)
 	private List<Opera> opere;
+	
+	public Artista() {
+		
+	}
 
 	public Long getId() {
 		return id;
@@ -69,6 +68,15 @@ public class Artista{
 
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	}
+	
+	
+	public String getLuogoNascita() {
+		return luogoNascita;
+	}
+
+	public void setLuogoNascita(String luogoNascita) {
+		this.luogoNascita = luogoNascita;
 	}
 
 	public String getNazionalita() {
@@ -101,6 +109,31 @@ public class Artista{
 
 	public void setOpere(List<Opera> opere) {
 		this.opere = opere;
+	}
+
+	
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
+	}
+
+	public String getLuogoMorte() {
+		return luogoMorte;
+	}
+
+	public void setLuogoMorte(String luogoMorte) {
+		this.luogoMorte = luogoMorte;
+	}
+
+	public String getUnspalsLink() {
+		return unspalsLink;
+	}
+
+	public void setUnspalsLink(String unspalsLink) {
+		this.unspalsLink = unspalsLink;
 	}
 
 	@Override
@@ -164,6 +197,12 @@ public class Artista{
 		return true;
 	}
 	
-	
+	@Transient
+	public String getPathImmagine() {
+		if (immagine == null) return null;
+		
+		return "/img" + immagine;
+	}
+
 	
 }
