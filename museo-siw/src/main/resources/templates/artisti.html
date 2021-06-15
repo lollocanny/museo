@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:th="https://www.thymeleaf.org">
+ <head>
+    <title>Artisti</title>
+    <link rel="stylesheet" href="/css/artisti.css">
+      <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+<body>
+		<div>
+				<a th:href="@{/}" class="home">HOME</a>
+		</div>
+			
+		<tr th:each="artista : ${artisti}">
+		<td>
+			<a class="nomeartista" href="artista.html" 
+			th:href="@{'/artista' + '/' + ${artista.id}}" th:text="${artista.nome} + ${artista.cognome}" >Pablo Picasso</a> <img class="foto1" th:src="@{/img/artista.jpg}" height="300" width="300" align="right">
+			<br>
+			<p class="informazioni-artista">Data di nascita: <span th:text="${artista.dataNascita}"></span></p>
+			<br>
+			<br>
+			<p class="informazioni-artista">Luogo di nascita: <span th:text="${artista.luogoNascita}"></span></p>
+			<br>
+			<br>
+			<p class="informazioni-artista">Data di morte: <span th:text="${artista.dataMorte}"></span></p>
+			<br>
+			<br>
+			<p class="informazioni-artista">Luogo di morte: <span th:text="${artista.luogoMorte}"></span></p>
+			<br>
+			<br>
+			<p class="informazioni-artista">Nazionalità: <span th:text="${artista.nazionalita}"></span></p>
+			<br>
+			<div class="dconbordo"></div>
+		</td>
+	</tr>
+
+</body></html>

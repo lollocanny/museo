@@ -9,9 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.model.Collezione;
-import it.uniroma3.siw.model.Curatore;
 import it.uniroma3.siw.repository.CollezioneRepository;
-import it.uniroma3.siw.repository.CuratoreRepository;
+
 
 @Service
 public class CollezioneService {
@@ -19,17 +18,10 @@ public class CollezioneService {
 	@Autowired
 	private CollezioneRepository collezioneRepository;
 
-	@Autowired
-	private CuratoreRepository dipendenteRepository;
 	
 	@Transactional
-	public void saveCollezione(Collezione c, String curatore_matricola) {
-		Curatore d = dipendenteRepository.findByMatricola(curatore_matricola).orElse(null);
-		
-		if(d != null) {
-			c.setCuratore(d);
+	public void saveCollezione(Collezione c) {
 			collezioneRepository.save(c);
-		}
 	}
 	
 	@Transactional

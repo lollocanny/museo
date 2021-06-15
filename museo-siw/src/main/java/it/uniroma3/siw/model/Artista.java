@@ -47,9 +47,6 @@ public class Artista{
 	
 	private String luogoMorte;
 	
-	private String descrizione;
-	
-	
 	private String unspalsLink;
 	
 	@OneToMany(mappedBy = "autore", cascade = CascadeType.ALL)
@@ -134,14 +131,6 @@ public class Artista{
 		this.luogoMorte = luogoMorte;
 	}
 
-	public String getDescrizione() {
-		return descrizione;
-	}
-
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
-	}
-
 	public String getUnspalsLink() {
 		return unspalsLink;
 	}
@@ -165,7 +154,6 @@ public class Artista{
 		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
 		result = prime * result + ((dataMorte == null) ? 0 : dataMorte.hashCode());
 		result = prime * result + ((dataNascita == null) ? 0 : dataNascita.hashCode());
-		result = prime * result + ((descrizione == null) ? 0 : descrizione.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((immagine == null) ? 0 : immagine.hashCode());
 		result = prime * result + ((luogoMorte == null) ? 0 : luogoMorte.hashCode());
@@ -200,11 +188,6 @@ public class Artista{
 			if (other.dataNascita != null)
 				return false;
 		} else if (!dataNascita.equals(other.dataNascita))
-			return false;
-		if (descrizione == null) {
-			if (other.descrizione != null)
-				return false;
-		} else if (!descrizione.equals(other.descrizione))
 			return false;
 		if (id == null) {
 			if (other.id != null)

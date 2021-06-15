@@ -18,7 +18,7 @@ main{
 	min-width: 460px;
 	position:relative;
 	z-index: 2;
-	background-image: url(../img/opera3.jpg);
+	background-image: url(../img/opera3.jpg); ;
 	margin-bottom: 300px;
 	box-shadow: 3px 2px 2px 0px rgba(51,51,51,0,5);
 	background-repeat: no-repeat;

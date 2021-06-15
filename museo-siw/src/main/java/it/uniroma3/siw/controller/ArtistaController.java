@@ -25,6 +25,41 @@ import it.uniroma3.siw.validator.ArtistaValidator;
 
 @Controller
 public class ArtistaController {
+	@Autowired
+	private ArtistaService artistaService;
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    
+
+	
+    @RequestMapping(value = "/artista/{id}", method = RequestMethod.GET)
+    public String getArtista(@PathVariable("id") Long id, Model model) {
+    	model.addAttribute("artista", this.artistaService.getArtista(id));
+    	return "artista";
+    }
+
+    @RequestMapping(value = "/artista", method = RequestMethod.GET)
+    public String getArtisti(Model model) {
+    		model.addAttribute("artisti", this.artistaService.getAllArtisti());
+    		return "artisti";
+    }
+}
+
+
+	
+/*	
+ * 
+ * 	@RequestMapping(value = {"/visualizzaArtisti"}, method= RequestMethod.GET)
+	public String visualizzaArtisti(Model model) {
+		logger.debug("visualizzaArtisti");
+		return "artisti.html";
+	}
+	
+	@RequestMapping(value = {"/visualizzaArtista"}, method= RequestMethod.GET)
+	public String visualizzaArtista(Model model) {
+		logger.debug("visualizzaArtista");
+		return "artista.html";
+	}
+	
 	
 	@Autowired
 	private ArtistaService artistaService;
@@ -80,4 +115,4 @@ public class ArtistaController {
 		return "admin/artista-form";
 	}
 
-}
+}*/

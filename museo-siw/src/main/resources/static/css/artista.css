@@ -54,24 +54,17 @@ h2 {
 	font-size: 32px;
 }
 
-.nomeopera {
+.nomeartista {
 	font-size: 30px;
 	font-style: italic;
 	color: darkblue;
 	margin-left: 10%;
 }
 
-.informazioni-opera {
+.informazioni-artista {
 	font-size: 20px;
 	font-style: italic;
 	margin-left: 10%;
-}
-
-.informazioni-autore {
-	font-size: 25px;
-	font-style: italic;
-	margin-left: 10%;
-	margin-top: 2%;
 }
 
 
@@ -84,5 +77,5 @@ h2 {
 
 .foto1{
 	margin-right:8%;
-	margin-top: 1%;
+	margin-top: -2%;
 }

@@ -19,7 +19,6 @@ import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.ArtistaService;
 import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.service.CredenzialiService;
-import it.uniroma3.siw.service.CuratoreService;
 import it.uniroma3.siw.service.OperaService;
 
 @Controller

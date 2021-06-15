@@ -51,7 +51,7 @@ h2 {
 
 .descrizione{
 	text-align: center;
-	font-size: 32px;
+	font-size: 22px;
 }
 
 .nomeopera {
@@ -64,25 +64,5 @@ h2 {
 .informazioni-opera {
 	font-size: 20px;
 	font-style: italic;
-	margin-left: 10%;
-}
-
-.informazioni-autore {
-	font-size: 25px;
-	font-style: italic;
-	margin-left: 10%;
-	margin-top: 2%;
-}
-
-
-.dconbordo {
-  border-bottom: double;
-  	margin-left: 8%;
-  	margin-right: 8%;
-  	margin-bottom:2%;
-}
-
-.foto1{
-	margin-right:8%;
-	margin-top: 1%;
+	margin-left: 11%;
 }

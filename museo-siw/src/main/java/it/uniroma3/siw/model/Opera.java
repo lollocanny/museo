@@ -26,15 +26,14 @@ public class Opera {
 	
 	private String titolo;
 	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private LocalDate dataPubblicazione;
+	private LocalDate data;
 	
-	private String luogo;
+	private String dimensione;
+	
+	private String tecnica;
 	
 	@Column(nullable = true, length = 64)
 	private String immagine;
-	
-	private Boolean isLong;
 	
 	private String descrizione;
 	
@@ -67,36 +66,12 @@ public class Opera {
 		this.titolo = titolo;
 	}
 
-	public LocalDate getDataPubblicazione() {
-		return dataPubblicazione;
-	}
-
-	public void setDataPubblicazione(LocalDate dataPubblicazione) {
-		this.dataPubblicazione = dataPubblicazione;
-	}
-
-	public String getLuogo() {
-		return luogo;
-	}
-
-	public void setLuogo(String luogo) {
-		this.luogo = luogo;
-	}
-
 	public String getImmagine() {
 		return immagine;
 	}
 
 	public void setImmagine(String immagine) {
 		this.immagine = immagine;
-	}
-
-	public Boolean getIsLong() {
-		return isLong;
-	}
-
-	public void setIsLong(Boolean isLong) {
-		this.isLong = isLong;
 	}
 
 	public String getDescrizione() {
@@ -123,18 +98,42 @@ public class Opera {
 		this.collezione = collezione;
 	}
 
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+
+	public String getDimensione() {
+		return dimensione;
+	}
+
+	public void setDimensione(String dimensione) {
+		this.dimensione = dimensione;
+	}
+
+	public String getTecnica() {
+		return tecnica;
+	}
+
+	public void setTecnica(String tecnica) {
+		this.tecnica = tecnica;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((autore == null) ? 0 : autore.hashCode());
 		result = prime * result + ((collezione == null) ? 0 : collezione.hashCode());
-		result = prime * result + ((dataPubblicazione == null) ? 0 : dataPubblicazione.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((descrizione == null) ? 0 : descrizione.hashCode());
+		result = prime * result + ((dimensione == null) ? 0 : dimensione.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((immagine == null) ? 0 : immagine.hashCode());
-		result = prime * result + ((isLong == null) ? 0 : isLong.hashCode());
-		result = prime * result + ((luogo == null) ? 0 : luogo.hashCode());
+		result = prime * result + ((tecnica == null) ? 0 : tecnica.hashCode());
 		result = prime * result + ((titolo == null) ? 0 : titolo.hashCode());
 		return result;
 	}
@@ -158,15 +157,20 @@ public class Opera {
 				return false;
 		} else if (!collezione.equals(other.collezione))
 			return false;
-		if (dataPubblicazione == null) {
-			if (other.dataPubblicazione != null)
+		if (data == null) {
+			if (other.data != null)
 				return false;
-		} else if (!dataPubblicazione.equals(other.dataPubblicazione))
+		} else if (!data.equals(other.data))
 			return false;
 		if (descrizione == null) {
 			if (other.descrizione != null)
 				return false;
 		} else if (!descrizione.equals(other.descrizione))
+			return false;
+		if (dimensione == null) {
+			if (other.dimensione != null)
+				return false;
+		} else if (!dimensione.equals(other.dimensione))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -178,15 +182,10 @@ public class Opera {
 				return false;
 		} else if (!immagine.equals(other.immagine))
 			return false;
-		if (isLong == null) {
-			if (other.isLong != null)
+		if (tecnica == null) {
+			if (other.tecnica != null)
 				return false;
-		} else if (!isLong.equals(other.isLong))
-			return false;
-		if (luogo == null) {
-			if (other.luogo != null)
-				return false;
-		} else if (!luogo.equals(other.luogo))
+		} else if (!tecnica.equals(other.tecnica))
 			return false;
 		if (titolo == null) {
 			if (other.titolo != null)
@@ -195,6 +194,8 @@ public class Opera {
 			return false;
 		return true;
 	}
+
+
 	
 	
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Collezione</title>
+    <link rel="stylesheet" href="/css/collezione.css">
+    
+</head>
+<body>
+		<div>
+				<a th:href="@{/}" class="home">HOME</a>
+		</div>
+		
+			<div th:if="${collezione}" th:object="${collezione}">
+			<div th:each="opera : ${collezione.opere}">
+			<h1 th:text="${opera.titolo}">Guernica</h1>
+			<p th:text="${opera.descrizione}" class="descrizione">Guernica è un quadro di Pablo Picasso. L'ispirazione per l'opera, improvvisa e all'ultimo minuto, arrivò solo dopo il bombardamento di Guernica.</p> 	
+			<div align="center"><img class="foto1" th:src="@{/img/opera4.jpg}" height="500" width=""></div>
+			<div>
+			<span class="informazioni-opera">Autore: <span th:text="${opera.autore.nome} + ${opera.autore.cognome}"></span></span>
+			<span class="informazioni-opera">Anno: <span th:text="${opera.data}"></span></span>
+			<span class="informazioni-opera">Dimensioni: <span th:text="${opera.dimensione}"></span></span>
+			<span class="informazioni-opera">Tecnica: <span th:text="${opera.tecnica}"></span></span>
+			</div>
+			</div>
+
+	<div class="prova">
+		<a th:href="@{/collezione}" class="home">Torna indietro</a>
+	</div>
+</body></html>

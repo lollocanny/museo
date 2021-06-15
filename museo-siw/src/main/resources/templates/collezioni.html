@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Collezioni</title>
+    <link rel="stylesheet" href="/css/collezioni.css">
+          <style>
+    a { text-decoration: none; }
+  </style> 
+</head>
+<body>
+		<div>
+				<a th:href="@{/}" class="home">HOME</a>
+		</div>
+		
+			<div th:each="collezione : ${collezioni}">
+			<h1>Collezioni</h1>
+			<a class="nomecollezione" href="collezione.html" 
+			th:href="@{'/collezione' + '/' + ${collezione.nome}}" th:text="${collezione.nome}">Collezione opere</a>
+			<h3>A cura di: <span th:text="${collezione.curatore}"></span></h3>
+			<p th:text="${collezione.descrizione}" class="descrizione">Collezione che raccoglie le opere messe fino al momento</p>
+
+
+</body></html>

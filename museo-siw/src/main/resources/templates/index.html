@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>museo.com</title>
@@ -15,19 +16,19 @@
 		
 		<div class="containerBox">
 			<div class="collezioni">
-				<a href="/visualizzaOpere" class="collezioniTitolo" data-async>
+				<a href="collezione" th:href="@{/collezione}" class="collezioniTitolo">
 					<h2>Collezioni</h2>
 				</a>
 			</div>
 			
 			<div class="opere">
-				<a href="/visualizzaOpere" class="opereTitolo" data-async>
+				<a href="opera" th:href="@{/opera}" class="opereTitolo">
 					<h2>Opere</h2>
 				</a>
 			</div>
 			
 			<div class="artisti">
-				<a href="/visualizzaOpere" class="artistiTitolo" data-async>
+				<a href="artista" th:href="@{/artista}" class="artistiTitolo">
 					<h2>Artisti</h2>
 				</a>
 			</div>
