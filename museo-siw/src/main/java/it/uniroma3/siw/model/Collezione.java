@@ -38,8 +38,6 @@ public class Collezione {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-<<<<<<< HEAD
 	
 	public String getCuratore() {
 		return curatore;
@@ -48,23 +46,13 @@ public class Collezione {
 	public void setCuratore(String curatore) {
 		this.curatore = curatore;
 	}
-
-=======
->>>>>>> main
+	
 	public List<Opera> getOpere() {
 		return opere;
 	}
 
 	public void setOpere(List<Opera> opere) {
 		this.opere = opere;
-	}
-
-	public String getCuratore() {
-		return curatore;
-	}
-
-	public void setCuratore(String curatore) {
-		this.curatore = curatore;
 	}
 
 	@Override

@@ -17,8 +17,13 @@ import it.uniroma3.siw.validator.CollezioneValidator;
 
 @Controller
 public class CollezioneController {
+	
 	@Autowired
 	private CollezioneService collezioneService;
+	
+
+	@Autowired
+	private CollezioneValidator collezioneValidator;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	
@@ -37,33 +42,8 @@ public class CollezioneController {
     		model.addAttribute("collezioni", this.collezioneService.getAllCollezioni());
     		return "collezioni";
     }
-}
-    
 
 
-/*	
-		@RequestMapping(value = {"/visualizzaCollezioni"}, method= RequestMethod.GET)
-	public String visualizzaCollezioni(Model model) {
-		logger.debug("visualizzaCollezioni");
-		return "collezioni.html";
-	}
-}
-	
-	@Autowired
-	private CollezioneService collezioneService;
-	
-	@Autowired
-	private CollezioneValidator collezioneValidator;
-	
-	@RequestMapping(value = "/collezione/{nome}", method = RequestMethod.GET )
-	public String getCollezionePerId(@PathVariable("nome") String nome,  Model model){
-		Collezione c = collezioneService.getCollezione(nome);
-		
-		model.addAttribute("collezione", c);
-		model.addAttribute("opere", c.getOpere());
-		
-		return "collezione";
-	}
 	
 	@RequestMapping(value="/admin/collezione/save", method=RequestMethod.POST)
 	public String saveArtista(@ModelAttribute("collezione") Collezione collezione, 
@@ -88,4 +68,3 @@ public class CollezioneController {
 	}
 
 }
-*/

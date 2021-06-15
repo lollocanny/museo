@@ -29,7 +29,6 @@ public class Artista{
 	
 	private String dataNascita;
 	
-<<<<<<< HEAD
 	private String luogoNascita;
 	
 	private String dataMorte;
@@ -38,8 +37,6 @@ public class Artista{
 	
 	private String immagine;
 	
-=======
->>>>>>> main
 	private String unspalsLink;
 	
 	@OneToMany(mappedBy = "autore", cascade = CascadeType.ALL)

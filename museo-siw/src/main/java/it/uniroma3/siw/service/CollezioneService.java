@@ -21,11 +21,7 @@ public class CollezioneService {
 	
 	@Transactional
 	public void saveCollezione(Collezione c) {
-<<<<<<< HEAD
 		collezioneRepository.save(c);
-=======
-			collezioneRepository.save(c);
->>>>>>> main
 	}
 	
 	@Transactional
