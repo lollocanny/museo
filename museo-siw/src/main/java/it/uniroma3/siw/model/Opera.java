@@ -26,16 +26,28 @@ public class Opera {
 	
 	private String titolo;
 	
+<<<<<<< HEAD
 	private String descrizione;
 	
+	private LocalDate data;
+=======
 	private LocalDate data;
 	
 	private String dimensione;
 	
 	private String tecnica;
+>>>>>>> main
+	
+	private String dimensione;
+	
+<<<<<<< HEAD
+	private String tecnica;
 	
 	@Column(nullable = true, length = 64)
 	private String immagine;
+=======
+	private String descrizione;
+>>>>>>> main
 	
 	@ManyToOne
 	private Artista autore;
@@ -66,6 +78,7 @@ public class Opera {
 		this.titolo = titolo;
 	}
 
+<<<<<<< HEAD
 	public LocalDate getData() {
 		return data;
 	}
@@ -90,6 +103,8 @@ public class Opera {
 		this.tecnica = tecnica;
 	}
 
+=======
+>>>>>>> main
 	public String getImmagine() {
 		return immagine;
 	}
@@ -98,7 +113,10 @@ public class Opera {
 		this.immagine = immagine;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 	public String getDescrizione() {
 		return descrizione;
 	}
@@ -123,6 +141,30 @@ public class Opera {
 		this.collezione = collezione;
 	}
 
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+
+	public String getDimensione() {
+		return dimensione;
+	}
+
+	public void setDimensione(String dimensione) {
+		this.dimensione = dimensione;
+	}
+
+	public String getTecnica() {
+		return tecnica;
+	}
+
+	public void setTecnica(String tecnica) {
+		this.tecnica = tecnica;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -131,8 +173,13 @@ public class Opera {
 		result = prime * result + ((collezione == null) ? 0 : collezione.hashCode());
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((descrizione == null) ? 0 : descrizione.hashCode());
+		result = prime * result + ((dimensione == null) ? 0 : dimensione.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((immagine == null) ? 0 : immagine.hashCode());
+<<<<<<< HEAD
+=======
+		result = prime * result + ((tecnica == null) ? 0 : tecnica.hashCode());
+>>>>>>> main
 		result = prime * result + ((titolo == null) ? 0 : titolo.hashCode());
 		return result;
 	}
@@ -166,6 +213,11 @@ public class Opera {
 				return false;
 		} else if (!descrizione.equals(other.descrizione))
 			return false;
+		if (dimensione == null) {
+			if (other.dimensione != null)
+				return false;
+		} else if (!dimensione.equals(other.dimensione))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -176,6 +228,14 @@ public class Opera {
 				return false;
 		} else if (!immagine.equals(other.immagine))
 			return false;
+<<<<<<< HEAD
+=======
+		if (tecnica == null) {
+			if (other.tecnica != null)
+				return false;
+		} else if (!tecnica.equals(other.tecnica))
+			return false;
+>>>>>>> main
 		if (titolo == null) {
 			if (other.titolo != null)
 				return false;
@@ -183,6 +243,8 @@ public class Opera {
 			return false;
 		return true;
 	}
+
+
 	
 	
 }

@@ -26,42 +26,83 @@ import it.uniroma3.siw.validator.OperaValidator;
 
 @Controller
 public class OperaController {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    
-	@RequestMapping(value = {"/visualizzaOpere"}, method= RequestMethod.GET)
-	public String visualizzaOpere(Model model) {
-		logger.debug("visualizzaOpere");
-		return "opere.html";
-	}
-    
-}
-
-	/*
 	@Autowired
 	private OperaService operaService;
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 
-	@Autowired
-	private OperaValidator operaValidator;
-	
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+    
 	@RequestMapping(value = "/opera/{id}")
 	public String getOpera(@PathVariable("id") Long id, Model model) {
-		
+
 		logger.debug("getOpera");
 		try {
 			Opera o = operaService.getOpera(id);
 			model.addAttribute("opera", o);
 			model.addAttribute("autore", o.getAutore());
-			
+
+			return "opera";
+
+		} catch (NoSuchElementException e)
+		{
+			return "error";
+		}
+	}
+
+    @RequestMapping(value = "/opera", method = RequestMethod.GET)
+    public String getOpere(Model model) {
+    		model.addAttribute("opere", this.operaService.getAllOpere());
+    		return "opere";
+    }
+
+}
+
+/*
+ * 
+ * 
+ * 
+ * 
+	    @RequestMapping(value = "/opera/{id}", method = RequestMethod.GET)
+    public String getOpera(@PathVariable("id") Long id, Model model) {
+    	model.addAttribute("opera", this.operaService.getOpera(id));
+    	return "opera";
+    }
+	
+	
+		@RequestMapping(value = {"/visualizzaOpere"}, method= RequestMethod.GET)
+	public String visualizzaOpere(Model model) {
+		logger.debug("visualizzaOpere");
+		return "opere.html";
+	}
+
+	@RequestMapping(value = {"/visualizzaOpera"}, method= RequestMethod.GET)
+	public String visualizzaOpera(Model model) {
+		logger.debug("visualizzaOpera");
+		return "opera.html";
+	}
+
+	@Autowired
+	private OperaValidator operaValidator;
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	@RequestMapping(value = "/opera/{id}")
+	public String getOpera(@PathVariable("id") Long id, Model model) {
+
+		logger.debug("getOpera");
+		try {
+			Opera o = operaService.getOpera(id);
+			model.addAttribute("opera", o);
+			model.addAttribute("autore", o.getAutore());
+
 			return "opera.html";
-			
+
 		} catch (NoSuchElementException e)
 		{
 			return "error.html";
 		}
 	}
-	
+
 	@RequestMapping(value="/admin/opera/save", method=RequestMethod.POST)
 	public String saveOpera(@ModelAttribute("opera") Opera opera,
 							@ModelAttribute("artista_id") String artista_id,
@@ -69,31 +110,31 @@ public class OperaController {
 							@RequestParam("foto") MultipartFile multipartFile,
 							@ModelAttribute("submit") String submit, 
 							BindingResult bindingResult ,Model model) throws IOException {
-		
-		
+
+
 		if("indietro".equals(submit)) {
 			return "admin/gestisci";
 		}
-		
+
 		operaValidator.validate(opera, bindingResult);
-		
+
 		if(!bindingResult.hasErrors()) {
-			
+
 			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			
+
 			opera.setImmagine(fileName);
-			
+
 			operaService.saveOpera(opera, Long.parseLong(artista_id), collezione_nome);
-			
+
 			CaricaFile.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
-			
+
 			return "admin/gestisci";
 		}
 
 		model.addAttribute("opera", opera);
-		
+
 		return "admin/opera-form";
 	}
-	
-	
+
+
 }*/

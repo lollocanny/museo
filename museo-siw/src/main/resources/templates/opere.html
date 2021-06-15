@@ -1,98 +1,60 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml"><head>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="https://www.thymeleaf.org">
+<head>
     <title>Opere</title>
     <link rel="stylesheet" href="/css/opere.css">
-    
+      <style>
+    a { text-decoration: none; }
+  </style>
+  
 </head>
 <body>
-	<div class="logo">
-			<a th:href="@{/}">
-				<img class="logo" th:src="@{/img/logoPiccolo.png}" alt="">
-			</a>
-	</div>
-			<h1>Menù</h1>
-			<p class="descrizione">Menu fantastico</p> 
-			
-			<h2>Antipasti</h2>
-			
-	<tr style="break-inside: avoid; page-break-inside: avoid;">
-		<td>
-			<p class="nomepiatto">Fritto misto</p>
-			<br>
-			<p class="descrizione-piatto">o frat ce sta de tutti vie vie viette a piglia u perdon</p>
-			<br>
-			<div class="dconbordo">
-				<p class="prezzo">22$</p>
-			</div>
-		</td>
-	</tr> 
-		<tr>
-		<td>
-			<p class="nomepiatto">Tartarrrr di pesce</p>
-			<br>
-			<p class="descrizione-piatto">Vuo fa pesce e pesce?? po po po po po </p>
-			<br>
-			<div class="dconbordo">
-				<p class="prezzo">120$</p>
-			</div>
-		</td>
-	</tr>
-	
-			
-			
-			<h2>Primi</h2>
-			
-	<tr style="break-inside: avoid; page-break-inside: avoid;">
-		<td>
-			<p class="nomepiatto">Pasta e vongole</p>
-			<br>
-			<p class="descrizione-piatto">Pasta con vongole veraci</p>
-			<br>
-			<div class="dconbordo">
-				<p class="prezzo">15$</p>
-			</div>
-		</td>
-	</tr> 
-		<tr>
-		<td>
-			<p class="nomepiatto">Pasta e patane</p>
-			<br>
-			<p class="descrizione-piatto">Pasta con patate km0 di rocco</p>
-			<br>
-			<div class="dconbordo">
-				<p class="prezzo">15$</p>
-			</div>
-		</td>
-	</tr>
-	
-		<h2>Secondi</h2>
+		<div>
+				<a th:href="@{/}" class="home">HOME</a>
+		</div>
 		
-	<tr style="break-inside: avoid; page-break-inside: avoid;">
+			<tr th:each="opera : ${opere}">
 		<td>
-			<p class="nomepiatto">Fiorentina</p>
+			<a class="nomeopera" href="opera.html" 
+			th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo}">Guernica</a> <img class="foto1" th:src="@{/img/opera4.jpg}" height="200" width="300" align="right">
 			<br>
-			<p class="descrizione-piatto">nu piezz e carne veramente importante tipo quello di rocco delle patane km0</p>
+			<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.autore.id}}">
+			<p class="informazioni-autore">Autore: <span th:text="${opera.autore.nome} + ${opera.autore.cognome}"></span></p></a>
+			<br>
+			<br>
+			<p class="informazioni-opera">Anno: <span th:text="${opera.data}"></span></p>
+			<br>
+			<br>
+			<p class="informazioni-opera">Dimensioni: <span th:text="${opera.dimensione}"></span></p>
+			<br>
+			<br>
+			<p class="informazioni-opera">Tecnica: <span th:text="${opera.tecnica}"></span></p>
 			<br>
 			<div class="dconbordo">
-				<p class="prezzo">35$</p>
+				
 			</div>
 		</td>
 	</tr> 
-		<tr>
+				<tr style="break-inside: avoid; page-break-inside: avoid;">
 		<td>
-			<p class="nomepiatto">Pesce spadino</p>
+			<p class="nomeopera">Notte Stellata</p> <img class="foto1" th:src="@{/img/opera3.jpg}" height="200" width="300" align="right">
 			<br>
-			<p class="descrizione-piatto">occhio al pesce spadino che ti fotte il motorino</p>
+			<p class="informazioni-opera">Autore: Vincent van Gogh</p>
+			<br>
+			<br>
+			<p class="informazioni-opera">Anno: 1889</p>
+			<br>
+			<br>
+			<p class="informazioni-opera">Dimensioni: 74 cm x 92 cm</p>
+			<br>
+			<br>
+			<p class="informazioni-opera">Tecnica: olio su tela</p>
 			<br>
 			<div class="dconbordo">
-				<p class="prezzo">1500$</p>
+				
 			</div>
 		</td>
 	</tr>
-		
-	 
-	<div class="prova">
-		<a th:href="@{/}">
-			<h3>Torna indietro</h3>
-	</div>
+
 </body></html>
