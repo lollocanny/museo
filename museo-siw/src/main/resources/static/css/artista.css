@@ -61,12 +61,21 @@ h2 {
 	margin-left: 10%;
 }
 
+span.nomeopera{
+		margin-left: 10%;
+		font-size: 30px;
+		font-style: italic;
+}
+
+a {
+	font-size: 30px;
+}
+
 .informazioni-artista {
 	font-size: 20px;
 	font-style: italic;
 	margin-left: 10%;
 }
-
 
 .dconbordo {
   border-bottom: double;

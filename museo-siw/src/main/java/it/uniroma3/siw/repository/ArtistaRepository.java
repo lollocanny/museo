@@ -10,5 +10,7 @@ import it.uniroma3.siw.model.Artista;
 @Repository
 public interface ArtistaRepository extends CrudRepository<Artista, Long> {
 	
+	public Optional<Artista> findById(Long id);
+	
 	public Optional<Artista> findByNomeAndCognome(String nome, String cognome);
 }

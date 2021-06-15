@@ -13,15 +13,14 @@ import it.uniroma3.siw.service.OperaService;
 @Component
 public class OperaValidator implements Validator {
 	
-	@Autowired
-	private OperaService operaService;
-	
-  
 	final Integer MAX_NAME_LENGTH = 100;
 	final Integer MIN_NAME_LENGTH = 2;
 	
+	@Autowired
+	private OperaService operaService;
+	
 	@Override
-	public void validate(Object obj, Errors errors) {
+	public void validate(Object o, Errors errors) {
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titolo", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descrizione", "required");
@@ -30,9 +29,7 @@ public class OperaValidator implements Validator {
 
 		if (!errors.hasErrors()) {
 			
-			
-			if (this.operaService.alreadyExists((Opera)obj)) {
-				
+			if (this.operaService.alreadyExists((Opera)o)) {
 				errors.reject("duplicato");
 			}
 		}

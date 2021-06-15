@@ -1,6 +1,5 @@
 package it.uniroma3.siw.model;
 
-import java.beans.Transient;
 import java.util.List;
 
 import javax.persistence.CascadeType;

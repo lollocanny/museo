@@ -66,7 +66,7 @@ public class OperaController {
     @RequestMapping(value = "/opera", method = RequestMethod.GET)
     public String getOpere(Model model) {
     		model.addAttribute("opere", this.operaService.getAllOpere());
-    		return "opere";
+    		return "opere.html";
     }
 
 
@@ -82,11 +82,14 @@ public class OperaController {
 	
 	@RequestMapping(value="/homePageGestisci/aggiungiOpera", method=RequestMethod.POST)
 	public String salvaOpera(@Valid @ModelAttribute Opera opera,
-			//@ModelAttribute("artista_id") String artista_id,
-			//@ModelAttribute("collezione_nome") String collezione_nome,
-			@RequestParam("foto") MultipartFile multipartFile,
-			@ModelAttribute("submit") String submit, 
-			BindingResult bindingResult ,Model model) throws IOException {
+			@ModelAttribute("artista_id") String artista_id,
+			@ModelAttribute("collezione_nome") String collezione_nome,
+			@RequestParam("foto") MultipartFile multipartFile, String submit,
+			BindingResult bindingResult , Model model) throws IOException {
+		
+		
+		//opera.setCollezione(collezioneService.getCollezione(collezione_nome));
+		//opera.setArtista(artistaService.getArtista(Long.parseLong(artista_id)));
 		
 		this.operaValidator.validate(opera, bindingResult);
 		
@@ -99,17 +102,14 @@ public class OperaController {
 			
 			opera.setImmagine(fileName);
 			
-			operaService.saveOpera(opera);
+			operaService.saveOpera(opera, artista_id, collezione_nome);
 			
 			CaricaFile.saveFile(MvcConfig.imagesPath, fileName, multipartFile);
 			
 		}
 		
-		model.addAttribute("opera", opera);
-		
 		return "gestisci";
 	}
 	
-
 
 }

@@ -4,7 +4,9 @@
 <head>
     <title>Artista</title>
     <link rel="stylesheet" href="/css/artista.css">
-    
+              <style>
+    a { text-decoration: none; }
+  </style>
 </head>
 <body>
 		<div>
@@ -13,7 +15,7 @@
 			
 		<tr th:if="${artista}" th:object="${artista}">
 		<td>
-			<p class="nomeartista" th:text="*{nome} + *{cognome}">Pablo Picasso</p> <img class="foto1" th:src="@{'/img/' + *{immagine}}" height="300" width="300" align="right">
+			<p class="nomeartista" th:text="*{nome} + ' ' + *{cognome}">Pablo Picasso</p> <img class="foto1" th:src="@{'/img/' + *{immagine}}" height="300" width="300" align="right">
 			<br>
 			<p class="informazioni-artista">Data di nascita: <span th:text="*{dataNascita}"></span></p>
 			<br>
@@ -29,10 +31,14 @@
 			<br>
 			<p class="informazioni-artista">Nazionalità: <span th:text="*{nazionalita}"></span></p>
 			<br>
-			<div class="dconbordo"></div>
 		</td>
 	</tr>
-
+			<div class="dconbordo"></div>
+		<div th:each="opera : ${artista.opere}">
+		
+		<span class="nomeopera"> Opere: </span><a class="nomeopera" href="opera.html" 
+			th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo} + ' '"></a>
+		</div>
 
 	<div class="prova">
 	<a th:href="@{/artista}" class="home">Torna indietro</a>

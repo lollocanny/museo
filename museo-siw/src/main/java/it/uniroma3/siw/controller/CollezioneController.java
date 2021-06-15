@@ -1,5 +1,7 @@
 package it.uniroma3.siw.controller;
 
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,7 @@ public class CollezioneController {
 
 	@Autowired
 	private CollezioneValidator collezioneValidator;
+	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	
@@ -39,28 +42,26 @@ public class CollezioneController {
 	}
 
     @RequestMapping(value = "/collezione", method = RequestMethod.GET)
-    public String getArtisti(Model model) {
+    public String getCollezione(Model model) {
     		model.addAttribute("collezioni", this.collezioneService.getAllCollezioni());
     		return "collezioni";
     }
 
     
     @RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.GET)
-	public String aggiungiOpera(Model model) {
+	public String aggiungiCollezione(Model model) {
     	model.addAttribute("collezione", new Collezione());
-		return "aggiungiCollezione";
+		return "aggiungiCollezione.html";
 	}
 	
 	@RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.POST)
-	public String saveArtista(@ModelAttribute("collezione") Collezione collezione, 
-							  @ModelAttribute("submit") String submit, 
-							  BindingResult bindingResult, Model model) {
+	public String saveCollezione(@ModelAttribute Collezione collezione, String submit, 
+							  BindingResult bindingResult, Model model) throws IOException {
 	
 		
-		collezioneValidator.validate(collezione, bindingResult);
+		this.collezioneValidator.validate(collezione, bindingResult);
 		
 		if(bindingResult.hasErrors()) {
-			
 			return "aggiungiCollezione";
 			
 		}

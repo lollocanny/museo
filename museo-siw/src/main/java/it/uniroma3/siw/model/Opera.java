@@ -1,7 +1,5 @@
 package it.uniroma3.siw.model;
 
-import java.beans.Transient;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
