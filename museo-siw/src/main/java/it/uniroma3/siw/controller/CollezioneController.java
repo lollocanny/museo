@@ -1,15 +1,7 @@
 package it.uniroma3.siw.controller;
 
-import java.io.IOException;
-
-<<<<<<< HEAD
-
-=======
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
->>>>>>> lollo
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

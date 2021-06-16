@@ -27,7 +27,6 @@ public class ArtistaValidator implements Validator {
 		String cognome = artista.getCognome().trim();
 		String nazionalita= artista.getNazionalita().trim();
 				
-		Artista a = (Artista)o;
 		
 		if (nome==null || nome.trim().isEmpty())
 			   errors.rejectValue("nome", "required");
