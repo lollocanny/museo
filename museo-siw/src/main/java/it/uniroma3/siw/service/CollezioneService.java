@@ -25,8 +25,8 @@ public class CollezioneService {
 	}
 	
 	@Transactional
-	public Collezione getCollezione(String nome) throws NoSuchElementException {
-		return collezioneRepository.findByNome(nome).get();
+	public Collezione getCollezione(Long id) throws NoSuchElementException {
+		return collezioneRepository.findById(id).get();
 	}
 	
 	@Transactional

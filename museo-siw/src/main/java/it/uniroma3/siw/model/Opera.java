@@ -7,17 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 @Entity
-
 public class Opera {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+
 	@Column(nullable=false)
 	private String titolo;
+	
 	
 	@Column(nullable=false)
 	private String descrizione;
@@ -28,7 +30,7 @@ public class Opera {
 	
 	private String tecnica;
 	
-	@Column(nullable = true, length = 64)
+	@Column(nullable = false, length = 64)
 	private String immagine;
 
 	@ManyToOne

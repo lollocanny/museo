@@ -31,9 +31,9 @@ public class CollezioneController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	
-	@RequestMapping(value = "/collezione/{nome}", method = RequestMethod.GET )
-	public String getCollezionePerId(@PathVariable("nome") String nome,  Model model){
-		Collezione c = collezioneService.getCollezione(nome);
+	@RequestMapping(value = "/collezione/{id}", method = RequestMethod.GET )
+	public String getCollezionePerId(@PathVariable("id") Long id,  Model model){
+		Collezione c = collezioneService.getCollezione(id);
 		
 		model.addAttribute("collezione", c);
 		model.addAttribute("opere", c.getOpere());
@@ -55,7 +55,7 @@ public class CollezioneController {
 	}
 	
 	@RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.POST)
-	public String saveCollezione(@ModelAttribute Collezione collezione, String submit, 
+	public String saveCollezione(@ModelAttribute Collezione collezione,
 							  BindingResult bindingResult, Model model) throws IOException {
 	
 		
