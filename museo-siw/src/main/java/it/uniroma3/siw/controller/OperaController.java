@@ -91,6 +91,7 @@ public class OperaController {
 		
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("artisti", artistaService.getAllArtisti());
+			model.addAttribute("collezioni", collezioneService.getAllCollezioni());
 			return "aggiungiOpera";
 		}
 		
@@ -106,6 +107,7 @@ public class OperaController {
 			
 		}
 		
+		model.addAttribute("opera",opera);
 		return "gestisci";
 	}
 	

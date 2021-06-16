@@ -7,6 +7,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.model.Artista;
+import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.ArtistaService;
 
 @Component
@@ -21,22 +22,29 @@ public class ArtistaValidator implements Validator {
 	@Override
 	public void validate(Object o, Errors errors) {
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognome", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nazionalita", "required");
-		
+		Artista artista = (Artista) o;
+		String nome = artista.getNome().trim();
+		String cognome = artista.getCognome().trim();
+		String nazionalita= artista.getNazionalita().trim();
+				
 		Artista a = (Artista)o;
 		
-		if("".equals(a.getLuogoMorte())) {
-			a.setLuogoMorte(null);
-		}
-
-		if (!errors.hasErrors()) {
-			
-			if (this.artistaService.alreadyExists((Artista)o)) {
-				errors.reject("duplicato");
-			}
-		}
+		if (nome==null || nome.trim().isEmpty())
+			   errors.rejectValue("nome", "required");
+		else if(nome.length() < MIN_NAME_LENGTH || nome.length() > MAX_NAME_LENGTH)
+			errors.rejectValue("nome", "size");
+		  else if(this.artistaService.alreadyExists(artista))
+		   errors.rejectValue("nome", "duplicate");
+		
+		if (cognome==null || cognome.trim().isEmpty())
+			   errors.rejectValue("cognome", "required");
+		else if(cognome.length() < MIN_NAME_LENGTH || cognome.length() > MAX_NAME_LENGTH)
+			errors.rejectValue("cognome", "size");
+		
+		if (nazionalita==null || nazionalita.trim().isEmpty())
+			   errors.rejectValue("nazionalita", "required");
+		else if(nazionalita.length() < MIN_NAME_LENGTH || nazionalita.length() > MAX_NAME_LENGTH)
+			errors.rejectValue("nazionalita", "size");
 	}
 	
 

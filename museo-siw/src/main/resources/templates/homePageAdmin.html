@@ -10,10 +10,11 @@
 <body>
 	<main>
 		<div class="top">
-				<a href="/homePageAdmin" class="home">HOME</a>
+				<a th:href="@{/homePageAdmin}" class="home">HOME</a>
 				<h3>Benvenuto, gestisci il museo!</h3>
 		</div>
 		<div class="containerBox">
+		
 			<div class="collezioni">
 				<<a href="collezione" th:href="@{/collezione}" class="collezioniTitolo">
 					<h2>Collezioni</h2>
@@ -31,6 +32,7 @@
 					<h2>Artisti</h2>
 				</a>
 			</div>
+			
 		</div>
 		<div class="freccia">
 			<h2>^</h2>

@@ -1,7 +1,5 @@
 package it.uniroma3.siw.validator;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -23,17 +21,25 @@ public class CollezioneValidator implements Validator {
 	@Override
 	public void validate(Object o, Errors errors) {
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descrizione", "required");
+		
+		Collezione collezione = (Collezione) o;
+		
+		String nome = collezione.getNome().trim();
+		String descrizione = collezione.getDescrizione().trim();
+		
+		if (nome==null || nome.trim().isEmpty())
+			   errors.rejectValue("nome", "required");
+		else if(nome.length() < MIN_NAME_LENGTH || nome.length() > MAX_NAME_LENGTH)
+			errors.rejectValue("nome", "size");
+		  else if(this.collezioneService.alreadyExists(collezione))
+		   errors.rejectValue("nome", "duplicate");
+		
+		if (descrizione==null || descrizione.trim().isEmpty())
+			   errors.rejectValue("descrizione", "required");
+		else if(descrizione.length() < MIN_NAME_LENGTH || descrizione.length() > MAX_NAME_LENGTH)
+			errors.rejectValue("descrizione", "size");
 		
 		
-		if (!errors.hasErrors()) {
-			
-			
-			if (this.collezioneService.alreadyExists((Collezione)o)) {
-				errors.reject("duplicato");
-			}
-		}
 	}
 
 	@Override

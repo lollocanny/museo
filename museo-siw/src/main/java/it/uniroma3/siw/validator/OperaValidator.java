@@ -23,6 +23,7 @@ public class OperaValidator implements Validator {
 		Opera opera = (Opera) o;
 		String titolo = opera.getTitolo().trim();
 		String descrizione = opera.getDescrizione().trim();
+
 		
 		if (titolo==null || titolo.trim().isEmpty())
 			   errors.rejectValue("titolo", "required");
@@ -35,6 +36,9 @@ public class OperaValidator implements Validator {
 			   errors.rejectValue("descrizione", "required");
 		else if(descrizione.length() < MIN_NAME_LENGTH || descrizione.length() > MAX_NAME_LENGTH)
 			errors.rejectValue("descrizione", "size");
+		
+	
+		
 	}
 	
 	@Override
