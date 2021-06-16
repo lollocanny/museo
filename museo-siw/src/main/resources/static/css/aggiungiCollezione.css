@@ -4,15 +4,20 @@
 	}
     
 body{
-          	background:rgba(31, 58, 147, 1);
+          	background:black;
   			font-family: 'Times New Roman', Times, serif;
+  			background-image: url(../img/dama1.jpg);;
+  			background-repeat: no-repeat;
+  			background-size:cover;
+  			position:relative;
+  			height:1153.5px;
     }
    
 .codehim-form{
         max-width: 400px;
         min-height: 400px;
         box-sizing: border-box;
-        background: lightsteelblue;
+        background: sienna;
         box-shadow: 4px 2px 16px rgba(0, 0, 0, 0.4);
         border-radius: 8px;
         margin:  150px auto 0 auto;
@@ -103,7 +108,7 @@ body{
 }
 
 body .indietro:hover {
-	background:linear-gradient(to bottom, white 5%, #7892c2 100%);
+	background:linear-gradient(to bottom, white 5%, sienna 100%);
 	background-color:white;
 }
 

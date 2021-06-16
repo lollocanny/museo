@@ -17,7 +17,7 @@
 	box-shadow: 0px 0px 0px 2px #f0f1f5;
 	background-color:transparent;
 	border-radius:34px;
-	border:1px solid #4e6096;
+	border:2px solid #4e6096;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -26,6 +26,7 @@
 	padding:10px 8px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #283966;
+	color:#4e6096;
 }
 .home:hover {
 	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
@@ -79,10 +80,11 @@ h2 {
   border-bottom: double;
   	margin-left: 8%;
   	margin-right: 8%;
-  	margin-bottom:2%;
+  	margin-bottom:3%;
+  	margin-top: 4%;
 }
 
 .foto1{
 	margin-right:8%;
-	margin-top: 1%;
+	margin-top: 0%;
 }

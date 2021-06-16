@@ -1,6 +1,7 @@
 package it.uniroma3.siw.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import javax.validation.Valid;
@@ -47,19 +48,13 @@ public class ArtistaController {
     }
 
 
+    @RequestMapping(value = "/homePageGestisci/rimuoviArtista/{id}/remove", method = RequestMethod.POST)
+    public String deleteArtist(@PathVariable long id,
+     Model model) {
+	 artistaService.delete(id);
+	 return "gestisci.html";
+    }
 
-	
- 	@RequestMapping(value = {"/visualizzaArtisti"}, method= RequestMethod.GET)
-	public String visualizzaArtisti(Model model) {
-		logger.debug("visualizzaArtisti");
-		return "artisti.html";
-	}
-	
-	@RequestMapping(value = {"/visualizzaArtista"}, method= RequestMethod.GET)
-	public String visualizzaArtista(Model model) {
-		logger.debug("visualizzaArtista");
-		return "artista.html";
-	}
 	
     
 	@RequestMapping(value = "/artista/{id}", method = RequestMethod.GET)
@@ -84,6 +79,21 @@ public class ArtistaController {
 	public String aggiungiArtista(Model model) {
 		model.addAttribute("artista", new Artista());
 		return "aggiungiArtista.html";
+	}
+	
+	@RequestMapping(value = "/homePageGestisci/artisti", method = RequestMethod.GET)
+	 public String getArtists(Model model) {
+	  List<Artista> artisti = artistaService.getAllArtisti();
+	  model.addAttribute("artisti", artisti);
+	  return "rimuoviArtista";
+	 }
+	
+
+	
+	@RequestMapping(value="/homePageGestisci/rimuoviArtista", method=RequestMethod.GET)
+	public String rimuoviArtista(Model model) {
+		model.addAttribute("artisti", this.artistaService.getAllArtisti());
+		return "rimuoviArtista.html";
 	}
 	
 	@RequestMapping(value="/homePageGestisci/aggiungiArtista", method=RequestMethod.POST)

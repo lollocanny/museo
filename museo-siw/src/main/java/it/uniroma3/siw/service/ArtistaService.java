@@ -41,4 +41,9 @@ public class ArtistaService {
 	public boolean alreadyExists(Artista a) {
 		return artistaRepository.findByNomeAndCognome(a.getNome(), a.getCognome()).orElse(null) != null;
 	}
+	
+	@Transactional
+	 public void delete(long id){
+		 this.artistaRepository.deleteById(id);
+		}
 }
