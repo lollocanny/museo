@@ -2,8 +2,7 @@ package it.uniroma3.siw.controller;
 
 import java.io.IOException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.model.Collezione;
-import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.validator.CollezioneValidator;
 
@@ -28,7 +26,6 @@ public class CollezioneController {
 	@Autowired
 	private CollezioneValidator collezioneValidator;
 	
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	
 	@RequestMapping(value = "/collezione/{id}", method = RequestMethod.GET )

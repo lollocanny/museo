@@ -116,6 +116,7 @@ main .containerBox .menu a h2{
 .opere{
 	box-shadow: 0px 10px 10px -10px rgba(255,255,255,0.4);
 	transition:all 1s;
+		margin-left: 15%;
 }
 
 .opere:hover{

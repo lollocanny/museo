@@ -17,10 +17,10 @@
 			<tr th:each="opera : ${opere}">
 		<td>
 			<a class="nomeopera" href="opera.html" 
-			th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo}">Guernica</a> <img class="foto1" th:src="@{/img/opera4.jpg}" height="200" width="300" align="right">
+			th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo}">Guernica</a> <img class="foto1" th:src="@{'/img/' + *{opera.immagine}}" height="200" width="300" align="right">
 			<br>
 			<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}">
-			<p class="informazioni-autore">Autore: <span th:text="${opera.artista.nome} + ${opera.artista.cognome}"></span></p></a>
+			<p class="informazioni-autore">Autore: <span th:text="${opera.artista.nome} + ' ' + ${opera.artista.cognome}"></span></p></a>
 			<br>
 			<br>
 			<p class="informazioni-opera">Anno: <span th:text="${opera.data}"></span></p>
@@ -36,25 +36,5 @@
 			</div>
 		</td>
 	</tr> 
-				<tr style="break-inside: avoid; page-break-inside: avoid;">
-		<td>
-			<p class="nomeopera">Notte Stellata</p> <img class="foto1" th:src="@{/img/opera3.jpg}" height="200" width="300" align="right">
-			<br>
-			<p class="informazioni-opera">Autore: Vincent van Gogh</p>
-			<br>
-			<br>
-			<p class="informazioni-opera">Anno: 1889</p>
-			<br>
-			<br>
-			<p class="informazioni-opera">Dimensioni: 74 cm x 92 cm</p>
-			<br>
-			<br>
-			<p class="informazioni-opera">Tecnica: olio su tela</p>
-			<br>
-			<div class="dconbordo">
-				
-			</div>
-		</td>
-	</tr>
 
 </body></html>

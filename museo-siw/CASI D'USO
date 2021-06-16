@@ -1,0 +1,65 @@
+CASI D'USO:
+
+CASO D'USO UC1:	VISUALIZZAZIONE OPERE/A			Attore Primario:	Utente generico, Admin
+
+	•	Dalla home page l’utente/Admin seleziona il percorso “OPERE”
+	•	L’utente/Admin potrà vedere tutte le opere presenti nel museo e cliccando sul titolo dell’opera o sul nome dell’autore potrà vedere le pagine specifiche dell’opera e dell’autore.
+
+CASO D'USO UC2:	VISUALIZZAZIONE ARTISTI/A		Attore Primario:	Utente generico, Admin
+
+	•	Dalla home page l’utente/Admin seleziona il percorso “ARTISTI”
+	•	L’utente/Admin potrà vedere tutti gli artisti presenti nel museo e cliccando sul nome dell’artista potrà vedere la pagina specifica dell’autore, dalla quale potrà risalire alle opere da lui dipinte.
+
+
+CASO D'USO UC3:	VISUALIZZAZIONE COLLEZIONI/E	Attore Primario:	Utente generico, Admin
+
+	•	Dalla home page l’utente/Admin seleziona il percorso “COLLEZIONI”
+	•	L’utente/Admin potrà vedere tutte le collezioni presenti nel museo e cliccando sul nome della collezione potrà vedere le opere che la compongono.
+
+
+CASO D'USO UC4: LOGIN	Attore Primario:	Admin
+
+	•	Dalla home page l’Admin seleziona il percorso “ADMIN” nel footer
+	•	L’Admin compila il Login e viene reindirizzato alla home page dell’Admin
+
+
+CASO D'USO UC5:	AGGIUNTA DI UN’OPERA NEL MUSEO		Attore Primario:	Admin
+
+	•	Dalla home page l’Admin seleziona il percorso “ADMIN” nel footer
+	•	L’Admin compila il Login e viene reindirizzato alla home page dell’Admin
+	•	Dalla home page Admin l’Admin seleziona il percorso “PAGINA ADMIN” nel footer
+	•	Continua selezionando il percorso “Aggiungi Opera”
+	•	L’Admin compila il form inserendo i dati dell’Opera e seleziona infine “Salva”
+	•	Se l’operazione è andata a buon fine l’Admin sarà automaticamente reindirizzato alla pagina “PAGINA ADMIN”
+
+
+CASO D'USO UC6:	ELIMINAZIONE DI UN’OPERA DALLA GALLERIA 	Attore Primario:	Admin
+
+	•	Dalla home page l’utente Admin seleziona il percorso “PAGINA ADMIN”
+	•	Continuerà selezionando il percorso “Rimuovi Opera”
+
+
+CASO D'USO UC7:	AGGIUNTA DI UN AUTORE NEL MUSEO 	Attore Primario:	Admin
+
+	•	Dalla home page l’Admin seleziona il percorso “ADMIN” nel footer
+	•	L’Admin compila il Login e viene reindirizzato alla home page dell’Admin
+	•	Dalla home page Admin l’Admin seleziona il percorso “PAGINA ADMIN” nel footer
+	•	Continua selezionando il percorso “Aggiungi Artista”
+	•	L’Admin compila il form inserendo i dati dell’Artista e seleziona infine “Salva”
+	•	Se l’operazione è andata a buon fine l’Admin sarà automaticamente reindirizzato alla pagina “PAGINA ADMIN”
+
+CASO D'USO UC8:	ELIMINAZIONE DI UN AUTORE DALLA GALLERIA	Attore Primario:	Admin
+
+	•	Dalla home page l’utente Admin seleziona il percorso “PAGINA ADMIN”
+	•	Continuerà selezionando il percorso “RIMUOVI AUTORE”
+
+CASO D'USO UC9:	AGGIUNTA DI UNA COLLEZIONE NEL MUSEO		Attore Primario:	Admin
+
+	•	Dalla home page l’Admin seleziona il percorso “ADMIN” nel footer
+	•	L’Admin compila il Login e viene reindirizzato alla home page dell’Admin
+	•	Dalla home page Admin l’Admin seleziona il percorso “PAGINA ADMIN” nel footer
+	•	Continua selezionando il percorso “Aggiungi Collezione”
+	•	L’Admin compila il form inserendo i dati della Collezione e seleziona infine “Salva”
+	•	Se l’operazione è andata a buon fine l’Admin sarà automaticamente reindirizzato alla pagina “PAGINA ADMIN”
+
+

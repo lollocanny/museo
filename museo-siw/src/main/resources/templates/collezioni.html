@@ -12,13 +12,17 @@
 		<div>
 				<a th:href="@{/}" class="home">HOME</a>
 		</div>
+			
+						<h1>Collezioni</h1>
 		
 			<div th:each="collezione : ${collezioni}">
-			<h1>Collezioni</h1>
 			<a class="nomecollezione" href="collezione.html" 
-			th:href="@{'/collezione' + '/' + ${collezione.nome}}" th:text="${collezione.nome}">Collezione opere</a>
+			th:href="@{'/collezione' + '/' + ${collezione.id}}" th:text="${collezione.nome}">Collezione opere</a>
 			<h3>A cura di: <span th:text="${collezione.curatore}"></span></h3>
 			<p th:text="${collezione.descrizione}" class="descrizione">Collezione che raccoglie le opere messe fino al momento</p>
+			<div class="dconbordo">
+			</div>
+			</div>
 
 
 </body></html>

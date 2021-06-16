@@ -45,7 +45,8 @@ h1 {
 .nomecollezione {
 	font-size: 60px;
 	margin-top: 5%;
-	margin-left: 33%;
+	display: block;
+	text-align: center;
 }
 
 h2 {
@@ -64,4 +65,12 @@ h3 {
 .descrizione{
 	text-align: center;
 	font-size: 32px;
+}
+
+.dconbordo {
+  border-bottom: double;
+  	margin-left: 15%;
+  	margin-right: 15%;
+  	margin-bottom:2%;
+  	margin-top: 2%;
 }
