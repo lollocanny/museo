@@ -2,7 +2,14 @@ package it.uniroma3.siw.controller;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 
+=======
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+>>>>>>> lollo
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,8 +59,8 @@ public class CollezioneController {
 	}
 	
 	@RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.POST)
-	public String saveCollezione(@ModelAttribute Collezione collezione,
-							  BindingResult bindingResult, Model model) throws IOException {
+	public String saveCollezione(@Valid @ModelAttribute Collezione collezione,
+							  BindingResult bindingResult, Model model) {
 	
 		
 		this.collezioneValidator.validate(collezione, bindingResult);
@@ -63,6 +70,7 @@ public class CollezioneController {
 			
 		}
 		else {
+		model.addAttribute(collezione);
 		collezioneService.saveCollezione(collezione);
 		}
 		
