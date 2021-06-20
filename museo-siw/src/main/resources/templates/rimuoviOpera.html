@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>museo.com</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet"  href="/css/rimuoviOpera.css">
+</head>
+<body>
+   <a href="/homePageGestisci" class="indietro">Indietro</a>
+	<h1>Rimuovi le opere</h1>
+    <div>
+      <ul class="list" th:each="opera : ${opere}">
+       <li class="btn btn-outline-success" th:text="${opera.titolo}+ ' , ' +${opera.artista.nome} + ' , ' +${opera.collezione.nome}"></li>
+          <form method="POST" th:action="@{/homePageGestisci/rimuoviOpera/{id}/remove(id=${opera.id})}">
+           <button type="submit" class="btn btn-outline-danger" name="submit" value="value"> Elimina </button>                 
+          </form>
+      </ul>
+    </div>
+</body>
+</html>

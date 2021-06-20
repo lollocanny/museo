@@ -69,5 +69,19 @@ public class CollezioneController {
 		model.addAttribute("collezione", collezione);
 		return "gestisci";
 	}
+	
+	@RequestMapping(value="/homePageGestisci/rimuoviCollezione", method=RequestMethod.GET)
+	public String rimuoviCollezione(Model model) {
+		model.addAttribute("collezioni", this.collezioneService.getAllCollezioni());
+		return "rimuoviCollezione.html";
+	}
+	
+	@RequestMapping(value = "/homePageGestisci/rimuoviCollezione/{id}/remove", method = RequestMethod.POST)
+    public String deleteCollezione(@PathVariable long id,
+     Model model) {
+	 collezioneService.delete(id);
+	 return "gestisci.html";
+    }
+
 
 }

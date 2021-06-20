@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
- xmlns:th="https://www.thymeleaf.org">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
 <head>
-    <title>Opera</title>
-    <link rel="stylesheet" href="/css/opera.css">
-    
+	<title>museo.it</title>
+	<link rel="stylesheet" href="/css/opera.css">
+
 </head>
+
 <body>
+	<div>
+		<a th:href="@{/}" class="home">HOME</a>
+	</div>
+
+	<div th:if="${opera}" th:object="${opera}">
+		<h1 th:text="*{titolo}">Guernica</h1>
+		<p th:text="*{descrizione}" class="descrizione">Guernica è un quadro di Pablo Picasso. L'ispirazione per
+			l'opera, improvvisa e all'ultimo minuto, arrivò solo dopo il bombardamento di Guernica.</p>
+		<div class="immagine" align="center"><img class="foto1" th:src="@{'/img/' + *{immagine}}" height="500" width=""></div>
 		<div>
-				<a th:href="@{/}" class="home">HOME</a>
-		</div>
-		
-			<div th:if="${opera}" th:object="${opera}">
-			<h1 th:text="*{titolo}">Guernica</h1>
-			<p th:text="*{descrizione}" class="descrizione">Guernica è un quadro di Pablo Picasso. L'ispirazione per l'opera, improvvisa e all'ultimo minuto, arrivò solo dopo il bombardamento di Guernica.</p> 	
-			<div align="center"><img class="foto1" th:src="@{'/img/' + *{immagine}}" height="500" width=""></div>
-			<div>
-			<span class="informazioni-opera">Artista: <span th:text="${opera.artista.nome} + ' ' +  ${opera.artista.cognome} "></span></span>
+			<span class="informazioni-opera">Artista: <span
+					th:text="${opera.artista.nome} + ' ' +  ${opera.artista.cognome} "></span></span>
 			<span class="informazioni-opera">Anno: <span th:text="*{data}"></span></span>
 			<span class="informazioni-opera">Dimensioni: <span th:text="*{dimensione}"></span></span>
 			<span class="informazioni-opera">Tecnica: <span th:text="*{tecnica}"></span></span>
-			</div>
-			</div>
+		</div>
+	</div>
 
-	<div class="prova">
+	<div class="indietro">
 		<a th:href="@{/opera}" class="home">Torna indietro</a>
 	</div>
-</body></html>
+</body>
+
+</html>

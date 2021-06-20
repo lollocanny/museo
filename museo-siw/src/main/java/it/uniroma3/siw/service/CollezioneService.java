@@ -39,8 +39,9 @@ public class CollezioneService {
 		return collezioneRepository.findByNome(c.getNome()).orElse(null) != null;
 	}
 	
+	
 	@Transactional
-	public void removeCollezione(String nome) {
-		collezioneRepository.deleteByNome(nome);
-	}
+	 public void delete(long id){
+		 this.collezioneRepository.deleteById(id);
+		}
 }

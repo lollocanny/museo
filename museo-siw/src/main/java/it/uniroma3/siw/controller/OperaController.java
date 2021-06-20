@@ -111,5 +111,18 @@ public class OperaController {
 		return "gestisci";
 	}
 	
+	@RequestMapping(value="/homePageGestisci/rimuoviOpera", method=RequestMethod.GET)
+	public String rimuoviOpera(Model model) {
+		model.addAttribute("opere", this.operaService.getAllOpere());
+		return "rimuoviOpera.html";
+	}
+	
+	
+	@RequestMapping(value = "/homePageGestisci/rimuoviOpera/{id}/remove", method = RequestMethod.POST)
+    public String deleteOpera(@PathVariable long id,
+     Model model) {
+	 operaService.removeOpera(id);
+	 return "gestisci.html";
+    }
 
 }
