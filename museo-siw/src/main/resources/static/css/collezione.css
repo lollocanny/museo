@@ -5,19 +5,20 @@
 	box-sizing: border-box;
 }
 
-:root{
-	 --secondary-color: darkblue;
- 	 --contrast-color: white;
-}
+
+body{
+          	background:black;
+  			font-family: 'Times New Roman', Times, serif;
+    }
 
 .home {
 	margin-top: 3%;
 	margin-left: 2%;
-	margin-bottom: 1%;
+	margin-bottom: 2%;
 	box-shadow: 0px 0px 0px 2px #f0f1f5;
 	background-color:transparent;
 	border-radius:34px;
-	border:2px solid #4e6096;
+	border:2px solid white;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -25,12 +26,12 @@
 	font-size:17px;
 	padding:10px 8px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-	color:#4e6096;
+	text-shadow:0px 1px 0px white;
+	color:white;
 }
 .home:hover {
-	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-	background-color:#476e9e;
+	background:linear-gradient(to bottom,black 5%, white 100%);
+	background-color:white;
 }
 .home:active {
 	position:relative;
@@ -40,6 +41,9 @@
 h1 {
   text-align: center;
 	font-size: 75px;
+	color:white;
+	margin-bottom: 1.5%;
+	margin-top: 1%;
 }
 
 
@@ -47,19 +51,20 @@ h2 {
   text-align: center;
 	font-size: 60px;
 	margin-top: 5%;
-	color:	rgb(0, 0, 106);
+	color:	white;
 }
 
 .descrizione{
 	text-align: center;
 	font-size: 22px;
 	margin-bottom: 1%;
+	color:white;
 }
 
 .nomeopera {
 	font-size: 30px;
 	font-style: italic;
-	color: darkblue;
+	color: white;
 	margin-left: 10%;
 }
 
@@ -67,6 +72,7 @@ h2 {
 	font-size: 20px;
 	font-style: italic;
 	margin-left: 11%;
+	color:white;
 
 }
 
@@ -75,9 +81,10 @@ h2 {
   	margin-left: 8%;
   	margin-right: 8%;
   	margin-bottom:2%;
-  	margin-top:1%;
+  	margin-top:3%;
+  	color:white;
 }
 
 .foto1 {
-		margin-bottom: 1%;
+		margin-bottom: 2.5%;
 }

@@ -16,7 +16,7 @@
 		<h1 th:text="*{titolo}">Guernica</h1>
 		<p th:text="*{descrizione}" class="descrizione">Guernica è un quadro di Pablo Picasso. L'ispirazione per
 			l'opera, improvvisa e all'ultimo minuto, arrivò solo dopo il bombardamento di Guernica.</p>
-		<div class="immagine" align="center"><img class="foto1" th:src="@{'/img/' + *{immagine}}" height="500" width=""></div>
+		<div class="immagine" align="center"><img class="foto1" th:src="@{'/img/' + *{immagine}}" height="540" width="400"></div>
 		<div>
 			<span class="informazioni-opera">Artista: <span
 					th:text="${opera.artista.nome} + ' ' +  ${opera.artista.cognome} "></span></span>

@@ -33,14 +33,14 @@
 			<br>
 		</td>
 	</tr>
-			<div class="dconbordo"></div>
-		<div th:each="opera : ${artista.opere}">
+		<div class="dconbordo"></div>
+		<div class="blocco" th:each="opera : ${artista.opere}">
 		
 		<span class="nomeopera"> Opere: </span><a class="nomeopera" href="opera.html" 
 			th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo} + ' '"></a>
 		</div>
 
-	<div class="prova">
-	<a th:href="@{/artista}" class="home">Torna indietro</a>
+	<div class="indietro">
+		<a th:href="@{/artista}" class="home">Torna indietro</a>
 	</div>
 </body></html>

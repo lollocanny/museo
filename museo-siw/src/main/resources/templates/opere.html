@@ -17,7 +17,7 @@
 			<tr th:each="opera : ${opere}">
 		<td class="opera">
 			<a class="nomeopera" href="opera.html" 
-			th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo}">Guernica</a> <img class="foto1" th:src="@{'/img/' + *{opera.immagine}}" height="350" width="300" align="right">
+			th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo}">Guernica</a> <img class="foto1" th:src="@{'/img/' + *{opera.immagine}}" height="380" width="300" align="right">
 			<br>
 			<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}">
 			<p class="informazioni-autore">Autore: <span th:text="${opera.artista.nome} + ' ' + ${opera.artista.cognome}"></span></p></a>

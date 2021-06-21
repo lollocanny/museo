@@ -5,86 +5,87 @@
 	box-sizing: border-box;
 }
 
-:root{
-	 --secondary-color: darkblue;
- 	 --contrast-color: white;
-}
+body{
+          	background:black;
+  			font-family: 'Times New Roman', Times, serif;
+    }
 
 .home {
 	margin-top: 3%;
 	margin-left: 2%;
-	margin-bottom: 1%;
+	margin-bottom: 3%;
 	box-shadow: 0px 0px 0px 2px #f0f1f5;
 	background-color:transparent;
 	border-radius:34px;
-	border:2px solid #4e6096;
+	border:2px solid white;
 	display:inline-block;
 	cursor:pointer;
-	color:#4e6096;
+	color:white;
 	font-family:Times New Roman;
 	font-size:17px;
 	padding:10px 8px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
+	text-shadow:0px 1px 0px white;
 }
 .home:hover {
-	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-	background-color:#476e9e;
+	background:linear-gradient(to bottom, black 5%, white 100%);
+	background-color:white;
 }
 .home:active {
 	position:relative;
 	top:1px;
 }
 
-h1 {
-  text-align: center;
-	font-size: 75px;
-}
-
-
-h2 {
-  text-align: center;
-	font-size: 60px;
-	margin-top: 5%;
-	color:	rgb(0, 0, 106);
-}
-
-.descrizione{
-	text-align: center;
-	font-size: 32px;
-}
 
 .nomeartista {
-	font-size: 30px;
+	font-size: 38px;
 	font-style: italic;
-	color: darkblue;
+	color: white;
 	margin-left: 10%;
+	font-weight: bold;
+	margin-bottom: 13px;
 }
 
 span.nomeopera{
 		margin-left: 10%;
 		font-size: 30px;
 		font-style: italic;
+		color:white;
 }
+
 
 a {
 	font-size: 30px;
+	color:yellow;
 }
 
+
+
 .informazioni-artista {
-	font-size: 20px;
+	font-size: 22px;
 	font-style: italic;
 	margin-left: 10%;
+	color:white;
 }
 
 .dconbordo {
   border-bottom: double;
   	margin-left: 8%;
   	margin-right: 8%;
-  	margin-bottom:2%;
+  	margin-bottom:3%;
+  	margin-top:2%;
+  	color:white;
+}
+
+.blocco{
+	margin-top: 1%;
+}
+
+.indietro{
+	margin-top: 8%;
 }
 
 .foto1{
 	margin-right:8%;
-	margin-top: -2%;
+	margin-top: -1%;
 }
