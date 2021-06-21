@@ -71,7 +71,7 @@ public class OperaController {
 
 
    
-	@RequestMapping(value="/homePageGestisci/aggiungiOpera", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/aggiungiOpera", method=RequestMethod.GET)
 	public String aggiungiOpera(Model model) {
 		model.addAttribute("opera", new Opera());
 		model.addAttribute("collezioni", collezioneService.getAllCollezioni());
@@ -80,7 +80,7 @@ public class OperaController {
 	}
 	
 	
-	@RequestMapping(value="/homePageGestisci/aggiungiOpera", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/aggiungiOpera", method=RequestMethod.POST)
 	public String saveOpera(@Valid @ModelAttribute Opera opera,
 			@RequestParam("foto") MultipartFile multipartFile,
 			BindingResult bindingResult , Model model) throws IOException {
@@ -111,14 +111,14 @@ public class OperaController {
 		return "gestisci";
 	}
 	
-	@RequestMapping(value="/homePageGestisci/rimuoviOpera", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/rimuoviOpera", method=RequestMethod.GET)
 	public String rimuoviOpera(Model model) {
 		model.addAttribute("opere", this.operaService.getAllOpere());
 		return "rimuoviOpera.html";
 	}
 	
 	
-	@RequestMapping(value = "/homePageGestisci/rimuoviOpera/{id}/remove", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/rimuoviOpera/{id}/remove", method = RequestMethod.POST)
     public String deleteOpera(@PathVariable long id,
      Model model) {
 	 operaService.removeOpera(id);

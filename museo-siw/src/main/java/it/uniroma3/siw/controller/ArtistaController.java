@@ -48,7 +48,7 @@ public class ArtistaController {
     }
 
 
-    @RequestMapping(value = "/homePageGestisci/rimuoviArtista/{id}/remove", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/rimuoviArtista/{id}/remove", method = RequestMethod.POST)
     public String deleteArtist(@PathVariable long id,
      Model model) {
 	 artistaService.delete(id);
@@ -75,13 +75,13 @@ public class ArtistaController {
 		}
 	}
 	
-	@RequestMapping(value="/homePageGestisci/aggiungiArtista", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/aggiungiArtista", method=RequestMethod.GET)
 	public String aggiungiArtista(Model model) {
 		model.addAttribute("artista", new Artista());
 		return "aggiungiArtista.html";
 	}
 	
-	@RequestMapping(value = "/homePageGestisci/artisti", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/artisti", method = RequestMethod.GET)
 	 public String getArtists(Model model) {
 	  List<Artista> artisti = artistaService.getAllArtisti();
 	  model.addAttribute("artisti", artisti);
@@ -90,13 +90,13 @@ public class ArtistaController {
 	
 
 	
-	@RequestMapping(value="/homePageGestisci/rimuoviArtista", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/rimuoviArtista", method=RequestMethod.GET)
 	public String rimuoviArtista(Model model) {
 		model.addAttribute("artisti", this.artistaService.getAllArtisti());
 		return "rimuoviArtista.html";
 	}
 	
-	@RequestMapping(value="/homePageGestisci/aggiungiArtista", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/aggiungiArtista", method=RequestMethod.POST)
 	public String salvaArtista(@Valid @ModelAttribute Artista artista,
 								@RequestParam("foto") MultipartFile multipartFile,
 								String submit,BindingResult bindingResult,Model model) throws IOException{

@@ -8,12 +8,12 @@
 <link rel="stylesheet"  th:href="@{/css/aggiungiCollezione.css}">
 </head>
 <body>
-	<a href="/homePageGestisci" class="indietro">Indietro</a>
+	<a href="/admin/homePageGestisci" class="indietro">Indietro</a>
     <section>
 
                 <h1>Nuova Collezione</h1>
                  
-                     <form class="codehim-form" th:action="@{/homePageGestisci/aggiungiCollezione}" th:object="${collezione}" method="POST" enctype="multipart/form-data">                                                            
+                     <form class="codehim-form" th:action="@{/admin/aggiungiCollezione}" th:object="${collezione}" method="POST" enctype="multipart/form-data">                                                            
                         
                              <div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error : ''">
                                  <label th:text="#{richiesta.collezione.nome}">Nome

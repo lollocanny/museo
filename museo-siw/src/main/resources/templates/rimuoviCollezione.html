@@ -8,12 +8,12 @@
 <link rel="stylesheet"  href="/css/rimuoviCollezione.css">
 </head>
 <body>
-   <a href="/homePageGestisci" class="indietro">Indietro</a>
+   <a href="/admin/homePageGestisci" class="indietro">Indietro</a>
 	<h1>Rimuovi le collezioni</h1>
     <div>
       <ul class="list" th:each="collezione : ${collezioni}">
        <li class="btn btn-outline-success" th:text="${collezione.nome}+ ' ' +${collezione.curatore}"></li>
-          <form method="POST" th:action="@{/homePageGestisci/rimuoviCollezione/{id}/remove(id=${collezione.id})}">
+          <form method="POST" th:action="@{/admin/rimuoviCollezione/{id}/remove(id=${collezione.id})}">
            <button type="submit" class="btn btn-outline-danger" name="submit" value="value"> Elimina </button>                 
           </form>
       </ul>

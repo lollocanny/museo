@@ -38,12 +38,12 @@ public class AdminController {
 	    return "index.html";
 	}
 	
-	@RequestMapping(value="/homePageAdmin", method = RequestMethod.GET)
+	@RequestMapping(value="/admin/homePageAdmin", method = RequestMethod.GET)
 	public String homePageAdmin() {
 		return "homePageAdmin.html";
 	}
 	
-	@RequestMapping(value="/homePageGestisci", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/homePageGestisci", method=RequestMethod.GET)
 	public String homePageGestisci(@ModelAttribute("submit") String submit, Model model) {
 
 		return "gestisci.html";

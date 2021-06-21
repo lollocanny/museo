@@ -8,12 +8,12 @@
 <link rel="stylesheet"  th:href="@{/css/aggiungiArtista.css}">
 </head>
 <body>
-	<a href="/homePageGestisci" class="indietro">Indietro</a>
+	<a href="/admin/homePageGestisci" class="indietro">Indietro</a>
     <section>
 
                 <h1>Nuovo Artista</h1>
                  
-                     <form class="codehim-form" th:action="@{/homePageGestisci/aggiungiArtista}" th:object="${artista}" method="POST" enctype="multipart/form-data">                                                            
+                     <form class="codehim-form" th:action="@{/admin/aggiungiArtista}" th:object="${artista}" method="POST" enctype="multipart/form-data">                                                            
                         
                              <div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error : ''">
                                  <label th:text="#{richiesta.artista.nome}">Nome

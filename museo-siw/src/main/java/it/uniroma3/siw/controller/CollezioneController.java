@@ -44,13 +44,13 @@ public class CollezioneController {
     }
 
     
-    @RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.GET)
+    @RequestMapping(value="/admin/aggiungiCollezione", method=RequestMethod.GET)
 	public String aggiungiCollezione(Model model) {
     	model.addAttribute("collezione", new Collezione());
 		return "aggiungiCollezione.html";
 	}
 	
-	@RequestMapping(value="/homePageGestisci/aggiungiCollezione", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/aggiungiCollezione", method=RequestMethod.POST)
 	public String saveCollezione(@Valid @ModelAttribute Collezione collezione,
 							  BindingResult bindingResult, Model model) {
 	
@@ -70,13 +70,13 @@ public class CollezioneController {
 		return "gestisci";
 	}
 	
-	@RequestMapping(value="/homePageGestisci/rimuoviCollezione", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/rimuoviCollezione", method=RequestMethod.GET)
 	public String rimuoviCollezione(Model model) {
 		model.addAttribute("collezioni", this.collezioneService.getAllCollezioni());
 		return "rimuoviCollezione.html";
 	}
 	
-	@RequestMapping(value = "/homePageGestisci/rimuoviCollezione/{id}/remove", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/rimuoviCollezione/{id}/remove", method = RequestMethod.POST)
     public String deleteCollezione(@PathVariable long id,
      Model model) {
 	 collezioneService.delete(id);

@@ -8,12 +8,12 @@
 <link rel="stylesheet"  th:href="@{/css/aggiungiOpera.css}">
 </head>
 <body>
-	<a href="/homePageGestisci" class="indietro">Indietro</a>
+	<a href="/admin/homePageGestisci" class="indietro">Indietro</a>
     <section>
 
                 <h1>Nuova Opera</h1>
                  
-                     <form id="form" class="codehim-form" th:action="@{/homePageGestisci/aggiungiOpera}" th:object="${opera}" method="POST" enctype="multipart/form-data">                                                            
+                     <form id="form" class="codehim-form" th:action="@{/admin/aggiungiOpera}" th:object="${opera}" method="POST" enctype="multipart/form-data">                                                            
                         
                              <div class="form-group" th:classappend="${#fields.hasErrors('titolo')} ? has-error : ''">
                                  <label th:text="#{richiesta.opera.titolo}">

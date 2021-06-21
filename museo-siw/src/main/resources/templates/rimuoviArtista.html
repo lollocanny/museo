@@ -8,12 +8,12 @@
 <link rel="stylesheet"  href="/css/rimuoviArtista.css">
 </head>
 <body>
-   <a href="/homePageGestisci" class="indietro">Indietro</a>
+   <a href="/admin/homePageGestisci" class="indietro">Indietro</a>
 	<h1>Rimuovi gli artisti</h1>
     <div>
       <ul class="list" th:each="artista : ${artisti}">
        <li class="btn btn-outline-success" th:text="${artista.nome}+ ' ' +${artista.cognome}"></li>
-          <form method="POST" th:action="@{/homePageGestisci/rimuoviArtista/{id}/remove(id=${artista.id})}">
+          <form method="POST" th:action="@{/admin/rimuoviArtista/{id}/remove(id=${artista.id})}">
            <button type="submit" class="btn btn-outline-danger" name="submit" value="value"> Elimina </button>                 
           </form>
       </ul>
