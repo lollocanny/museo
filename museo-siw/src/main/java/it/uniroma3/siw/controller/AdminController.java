@@ -33,14 +33,14 @@ public class AdminController {
 	    
 	    if (credenziali.getRole().equals(Credenziali.ADMIN_ROLE)) {
 	    	model.addAttribute("artista", new Artista());
-	    	return "homePageAdmin.html";
+	    	return "index.html";
 	    }
-	    return "index.html";
+	   return "index.html";
 	}
 	
 	@RequestMapping(value="/admin/homePageAdmin", method = RequestMethod.GET)
 	public String homePageAdmin() {
-		return "homePageAdmin.html";
+		return "index.html";
 	}
 	
 	@RequestMapping(value="/admin/homePageGestisci", method=RequestMethod.GET)

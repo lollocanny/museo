@@ -9,8 +9,9 @@
 
 <body>
 	<main>
-		<div>
+		<div class="top">
 				<a th:href="@{/}" class="home">HOME</a>
+				<h3 sec:authorize="hasAnyAuthority('ADMIN')">Benvenuto, gestisci il museo!</h3>
 		</div>
 		
 		<div class="containerBox">
@@ -83,7 +84,9 @@
 			</div>
 			
 			<div class="admin">
-				<p><a href="/login" data-async>ADMIN</a></p>
+				<p><a th:if="${#authorization.expression('!hasAnyAuthority(''ADMIN'')')}" href="/login" data-async>ADMIN</a></p>
+				<p><a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/admin/homePageGestisci}" data-async>PAGINA ADMIN</a></p>
+				<p><a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/logout}">LOGOUT</a></p>
 			</div>
 		</div>
 

@@ -51,6 +51,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
         .defaultSuccessUrl("/success")
         // logout paragraph: qui definiamo il logout
         .and().logout()
+        .logoutUrl("/logout")
         // il logout è attivato con una richiesta GET a "/logout"
         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
         // in caso di successo, si viene reindirizzati alla /index page
