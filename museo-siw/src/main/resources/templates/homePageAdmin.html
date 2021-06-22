@@ -86,6 +86,9 @@
 			
 			<div class="admin">
 				<p><a href="admin/homePageGestisci" data-async>PAGINA ADMIN</a></p>
+				<form class="logout" form-method="post" th:action="@{/logout}">
+					<a href="/logout" onclick="document.getElementById('logout').submit();"> LOGOUT</a>
+				</form>
 			</div>
 		</div>
 
