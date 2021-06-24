@@ -15,26 +15,20 @@
                  
                      <form class="codehim-form" th:action="@{/admin/aggiungiCollezione}" th:object="${collezione}" method="POST" enctype="multipart/form-data">                                                            
                         
-                             <div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error : ''">
+                             <div class="form-group">
                                  <label th:text="#{richiesta.collezione.nome}">Nome
                						...                  
                                  </label>
-                                 <div th:classappend="${#fields.hasErrors('nome')} ? 'input-icon right' : ''">
-                                  <i th:if="${#fields.hasErrors('nome')}" class="fa fa-exclamation tooltips" data-original-title="Il nome deve essere compreso tra 2 e 100 caratteri" data-container="body"></i>
                                  <input type="text" class="cm-input"  th:field="*{nome}" placeholder="Tra 2 e 100 caratteri"/>
-                                 <span th:if="${#fields.hasErrors('nome')}" class="help-block" th:errors="*{nome}"></span>
-                                 </div>
+                                 <span class="help-block" th:errors="*{nome}"></span>
                              </div>    
                                
-                             <div class="form-group" th:classappend="${#fields.hasErrors('descrizione')} ? has-error : ''">
+                             <div class="form-group">
                					<label th:text="#{richiesta.opera.descrizione}">Descrizione
                						...                  
                                  </label>
-                                 <div th:classappend="${#fields.hasErrors('descrizione')} ? 'input-icon right' : ''">
-                                  <i th:if="${#fields.hasErrors('descrizione')}" class="fa fa-exclamation tooltips" data-original-title="La descrizione deve essere compresa tra 2 e 100 caratteri" data-container="body"></i>
                                  <input type="text" class="cm-input"  th:field="*{descrizione}" placeholder="Tra 2 e 100 caratteri"/>
-                                 <span th:if="${#fields.hasErrors('descrizione')}" class="help-block" th:errors="*{descrizione}"></span>
-                                 </div>
+                                 <span class="help-block" th:errors="*{descrizione}"></span>
                              </div>    
 
 							<label th:text="#{richiesta.collezione.curatore}">
